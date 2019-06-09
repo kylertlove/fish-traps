@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "fishtraps:block/iron_fish_trap" }
+    }
+}
