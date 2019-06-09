@@ -13,7 +13,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
 import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapBlock;
-import net.nerds.fishtraps.blocks.ironFishTrap.IronFishTrapBlockEntity;
 
 public class DiamondFishTrapBlock extends BaseFishTrapBlock {
 
