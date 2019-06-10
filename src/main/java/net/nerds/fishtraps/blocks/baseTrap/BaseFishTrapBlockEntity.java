@@ -25,7 +25,7 @@ import net.minecraft.world.loot.context.LootContextTypes;
 import java.util.Iterator;
 import java.util.List;
 
-public class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, Inventory {
+public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, Inventory {
 
     private int tickCounter = 0; //counter to validate if waited
     private int tickValidator; //how many ticks to wait

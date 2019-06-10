@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 import net.nerds.fishtraps.Fishtraps;
 
 @Environment(EnvType.CLIENT)
-public class BaseFishTrapGui extends AbstractContainerScreen {
+public abstract class BaseFishTrapGui extends AbstractContainerScreen {
     public Identifier fishGui = new Identifier(Fishtraps.MODID, "textures/gui/fish_trap_gui.png");
     public BaseFishTrapBlockEntity tile;
     private String containerLabel = "";

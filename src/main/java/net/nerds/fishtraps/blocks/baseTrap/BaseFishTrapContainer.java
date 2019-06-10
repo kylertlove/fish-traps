@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.world.World;
 
-public class BaseFishTrapContainer extends GenericContainer {
+public abstract class BaseFishTrapContainer extends GenericContainer {
     public final Inventory inventory;
     public final PlayerInventory playerInventory;
     public final World world;

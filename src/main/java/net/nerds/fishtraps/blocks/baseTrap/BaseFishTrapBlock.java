@@ -10,7 +10,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class BaseFishTrapBlock extends Block implements BlockEntityProvider {
+public abstract class BaseFishTrapBlock extends Block implements BlockEntityProvider {
 
 
     public BaseFishTrapBlock(Settings settings) {

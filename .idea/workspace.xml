@@ -2,8 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d8686f-157b-4617-aafb-9c6efbc93cd3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapGui.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/assets/fishtraps/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/assets/fishtraps/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/.mixin.out/audit/mixin_implementation_report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" beforeDir="false" afterPath="$PROJECT_DIR$/run/config/fabric/indigo-renderer.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-06-09-1.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-06-09-1.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/logs/2019-06-09-2.log.gz" beforeDir="false" afterPath="$PROJECT_DIR$/run/logs/2019-06-09-2.log.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/run/options.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids_nether.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM-1/data/raids_nether.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/DIM1/data/raids_end.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/advancements/fcbec65f-dc14-3edc-a887-ca77c708a66e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/data/raids.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/level.dat_old" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/level.dat_old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/playerdata/fcbec65f-dc14-3edc-a887-ca77c708a66e.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/poi/r.-1.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.-1.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.-1.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.-2.0.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.-1.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.-2.mca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/region/r.0.0.mca" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/session.lock" beforeDir="false" afterPath="$PROJECT_DIR$/run/saves/New World/session.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/saves/New World/stats/fcbec65f-dc14-3edc-a887-ca77c708a66e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run/usercache.json" beforeDir="false" afterPath="$PROJECT_DIR$/run/usercache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -56,11 +105,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1573">
-              <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+            <state relative-caret-position="121">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-806">
+              <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gradle.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/Fishtraps.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-76">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,6 +223,7 @@
       <find>sendToo</find>
       <find>wat</find>
       <find>getBlockL</find>
+      <find>init</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -104,9 +232,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/volarius/machines/fishTrap/FishTrapBlockEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/assets/volarius/lang/en_us.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/fishtraps.mixins.json" />
         <option value="$PROJECT_DIR$/src/main/resources/fabric.mod.json" />
         <option value="$PROJECT_DIR$/src/main/resources/data/volarius/advancements/recipes/misc/farming_unit.json" />
         <option value="$PROJECT_DIR$/src/main/resources/data/volarius/loot_tables/blocks/fish_trap.json" />
@@ -124,16 +249,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/data/fishtraps/recipes/wooden_fish_trap.json" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/FishTrapContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlockEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlockEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapGui.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapContainer.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlock.java" />
         <option value="$PROJECT_DIR$/src/main/resources/assets/fishtraps/blockstates/iron_fish_trap.json" />
@@ -149,12 +266,23 @@
         <option value="$PROJECT_DIR$/src/main/resources/data/fishtraps/loot_tables/blocks/diamond_fish_trap.json" />
         <option value="$PROJECT_DIR$/src/main/resources/data/fishtraps/recipes/iron_fish_trap.json" />
         <option value="$PROJECT_DIR$/src/main/resources/data/fishtraps/recipes/diamond_fish_trap.json" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapGui.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java" />
         <option value="$PROJECT_DIR$/gradle.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java" />
       </list>
     </option>
   </component>
@@ -171,7 +299,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -179,16 +306,12 @@
               <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
               <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
-            <path>
-              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -223,7 +346,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.fish-traps [build]">
+  <component name="RunManager" selected="Gradle.volarius [runClient]">
     <configuration name="fish-traps [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -330,8 +453,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.fish-traps [build]" />
         <item itemvalue="Gradle.volarius [runClient]" />
+        <item itemvalue="Gradle.fish-traps [build]" />
         <item itemvalue="Gradle.volarius [genSourcesDecompile]" />
         <item itemvalue="Gradle.volarius [cleanLoomMappings]" />
         <item itemvalue="Gradle.volarius [cleanLoomBinaries]" />
@@ -352,19 +475,19 @@
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27508268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23263507" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977587" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.37993598" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.47705442" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.7257204" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.7427962" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.58591247" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.41622198" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32977587" />
@@ -401,127 +524,9 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fishtraps/loot_tables/blocks/wooden_fish_trap.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fishtraps/recipes/wooden_fish_trap.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fishtraps/models/item/wooden_fish_trap.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapContainer.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapBlockEntity.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapGui.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#350#351#0" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#641#642#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapGui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapContainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapBlockEntity.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/WoodenFishTrapGui.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fishtraps/blockstates/iron_fish_trap.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -580,13 +585,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/assets/fishtraps/textures/block/diamond_fish_trap.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fishtraps/advancements/recipes/misc/iron_fish_trap.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data/fishtraps/advancements/recipes/misc/iron_fish_trap.json" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/data/fishtraps/advancements/recipes/misc/wooden_fish_trap.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -625,114 +624,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/Fishtraps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlockEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="67" lean-forward="true" selection-start-line="3" selection-start-column="67" selection-end-line="3" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="42" column="49" selection-start-line="42" selection-start-column="49" selection-end-line="42" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/BarrelBlockEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="36" column="56" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="29" column="114" selection-start-line="29" selection-start-column="114" selection-end-line="29" selection-end-column="114" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlockEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -743,24 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/BlockEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/LockableContainerBlockEntity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
           <caret line="26" column="82" lean-forward="true" selection-start-line="26" selection-start-column="82" selection-end-line="26" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/LootableContainerBlockEntity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="106" column="55" lean-forward="true" selection-start-line="106" selection-start-column="55" selection-end-line="106" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -778,13 +660,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/LootableContainerBlockEntity.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1573">
-          <caret line="109" lean-forward="true" selection-start-line="109" selection-end-line="109" />
+        <state relative-caret-position="-260">
+          <caret line="38" column="9" lean-forward="true" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/BlockEntity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2834">
+          <caret line="145" column="5" lean-forward="true" selection-start-line="145" selection-start-column="5" selection-end-line="145" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/.gradle/loom-cache/remapped_mods/net.fabricmc.yarn.1.net.fabricmc.fabric-api.fabric-networking-blockentity-v0-0.1.1+25fd0c52.jar!/net/fabricmc/fabric/api/block/entity/BlockEntityClientSerializable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/block/entity/BarrelBlockEntity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="3" column="40" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlockEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlockEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlockEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="14" column="39" lean-forward="true" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="27" column="15" selection-start-line="27" selection-start-column="15" selection-end-line="27" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/FishtrapsClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/Fishtraps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="23" column="55" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="24" column="43" lean-forward="true" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapEntityManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-806">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
