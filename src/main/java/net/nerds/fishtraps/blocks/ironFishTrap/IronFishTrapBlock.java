@@ -11,8 +11,10 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
 import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapBlock;
+import net.nerds.fishtraps.config.FishTrapValues;
 
 public class IronFishTrapBlock extends BaseFishTrapBlock {
 
@@ -22,7 +24,9 @@ public class IronFishTrapBlock extends BaseFishTrapBlock {
 
     @Override
     public BlockEntity createBlockEntity(BlockView var1) {
-        return new IronFishTrapBlockEntity(250, 2, 2);
+        return new IronFishTrapBlockEntity(Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.IRON_TIME),
+                Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.IRON_LURE),
+                Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.IRON_LUCK));
     }
 
     @Override

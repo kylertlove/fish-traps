@@ -11,8 +11,11 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
 import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapBlock;
+import net.nerds.fishtraps.config.FishTrapValues;
+import net.nerds.fishtraps.config.FishTrapsConfig;
 
 public class DiamondFishTrapBlock extends BaseFishTrapBlock {
 
@@ -21,7 +24,10 @@ public class DiamondFishTrapBlock extends BaseFishTrapBlock {
     }
     @Override
     public BlockEntity createBlockEntity(BlockView var1) {
-        return new DiamondFishTrapBlockEntity(180, 3, 3);
+        return new DiamondFishTrapBlockEntity(
+                Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.DIAMOND_TIME),
+                Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.DIAMOND_LURE),
+                Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.DIAMOND_LUCK));
     }
 
     @Override

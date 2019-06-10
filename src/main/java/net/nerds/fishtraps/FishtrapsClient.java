@@ -4,8 +4,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
-import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapContainer;
-import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapGui;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapBlockEntity;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapContainer;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapGui;
