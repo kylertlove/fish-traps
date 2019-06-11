@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.nerds.fishtraps.blocks.FishTrapsManager;
-import net.nerds.fishtraps.config.FishTrapValues;
 import net.nerds.fishtraps.config.FishTrapsConfig;
 
 public class Fishtraps implements ModInitializer {

@@ -32,6 +32,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
     private int lureLevel;
     private int luckOfTheSeaLevel;
     private int maxStorage = 54;
+    private boolean showFishBait = true;
     public DefaultedList<ItemStack> inventory;
 
     public BaseFishTrapBlockEntity(BlockEntityType blockEntityType, int fishDelay, int lureLevel, int luckOfTheSeaLevel) {
@@ -179,5 +180,10 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
     @Override
     public void clear() {
         inventory.clear();
+    }
+
+
+    public boolean showFishBait() {
+        return showFishBait;
     }
 }

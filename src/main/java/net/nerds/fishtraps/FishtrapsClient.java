@@ -18,6 +18,7 @@ public class FishtrapsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+        FishTrapEntityManager.registerEntityRenderers();
         this.registerClientGuis();
     }
 

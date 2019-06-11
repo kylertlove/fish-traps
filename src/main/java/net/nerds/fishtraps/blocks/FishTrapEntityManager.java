@@ -1,5 +1,8 @@
 package net.nerds.fishtraps.blocks;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -8,10 +11,13 @@ import net.minecraft.util.registry.Registry;
 import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapBlockEntity;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapContainer;
+import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapRenderer;
 import net.nerds.fishtraps.blocks.ironFishTrap.IronFishTrapBlockEntity;
 import net.nerds.fishtraps.blocks.ironFishTrap.IronFishTrapContainer;
+import net.nerds.fishtraps.blocks.ironFishTrap.IronFishTrapRenderer;
 import net.nerds.fishtraps.blocks.woodenFishTrap.WoodenFishTrapBlockEntity;
 import net.nerds.fishtraps.blocks.woodenFishTrap.WoodenFishTrapContainer;
+import net.nerds.fishtraps.blocks.woodenFishTrap.WoodenFishTrapRenderer;
 import net.nerds.fishtraps.config.FishTrapValues;
 
 import java.util.function.Supplier;
@@ -66,5 +72,12 @@ public class FishTrapEntityManager {
         ContainerProviderRegistry.INSTANCE.registerFactory(DIAMOND_FISH_TRAP_CONTAINER, (syncid, identifier, player, buf) -> {
             return new DiamondFishTrapContainer(syncid, player.inventory, (DiamondFishTrapBlockEntity) player.world.getBlockEntity(buf.readBlockPos()));
         });
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static void registerEntityRenderers() {
+        BlockEntityRendererRegistry.INSTANCE.register(WoodenFishTrapBlockEntity.class, new WoodenFishTrapRenderer());
+        BlockEntityRendererRegistry.INSTANCE.register(IronFishTrapBlockEntity.class, new IronFishTrapRenderer());
+        BlockEntityRendererRegistry.INSTANCE.register(DiamondFishTrapBlockEntity.class, new DiamondFishTrapRenderer());
     }
 }

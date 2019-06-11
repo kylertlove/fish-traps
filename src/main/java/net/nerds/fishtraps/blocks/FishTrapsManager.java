@@ -8,17 +8,20 @@ import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapBlock;
 import net.nerds.fishtraps.blocks.ironFishTrap.IronFishTrapBlock;
 import net.nerds.fishtraps.blocks.woodenFishTrap.WoodenFishTrapBlock;
+import net.nerds.fishtraps.items.FishingBait;
 
 public class FishTrapsManager {
 
 	public static final WoodenFishTrapBlock WOODEN_FISH_TRAP = new WoodenFishTrapBlock();
 	public static final IronFishTrapBlock IRON_FISH_TRAP = new IronFishTrapBlock();
 	public static final DiamondFishTrapBlock DIAMOND_FISH_TRAP = new DiamondFishTrapBlock();
+	public static final Item FISH_BAIT = new FishingBait();
 
 	public static void init() {
 		FishTrapEntityManager.init();
 		FishTrapEntityManager.initGui();
 		blockInit();
+		itemInit();
 	}
 
 	private static void blockInit() {
@@ -36,5 +39,9 @@ public class FishTrapsManager {
 		Registry.register(Registry.ITEM,
 				new Identifier(Fishtraps.MODID, "diamond_fish_trap"),
 				new BlockItem(DIAMOND_FISH_TRAP, new Item.Settings().itemGroup(Fishtraps.fishTraps)));
+	}
+
+	private static void itemInit() {
+		Registry.register(Registry.ITEM, new Identifier(Fishtraps.MODID, "fish_trap_bait"), FISH_BAIT);
 	}
 }

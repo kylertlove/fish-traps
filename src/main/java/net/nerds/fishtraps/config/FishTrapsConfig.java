@@ -47,13 +47,13 @@ public class FishTrapsConfig {
     private JsonObject getDefaults() {
         Map<String, Object> c = new HashMap<>();
         JsonObject fishTrapJson = new JsonObject();
-        fishTrapJson.add("woodenTrapBaseTime", new JsonPrimitive(500));
+        fishTrapJson.add("woodenTrapBaseTime", new JsonPrimitive(900));
         fishTrapJson.add("woodenTrapLureLevel", new JsonPrimitive(1));
         fishTrapJson.add("woodenTrapLuckOfTheSeaLevel", new JsonPrimitive(1));
-        fishTrapJson.add("ironTrapBaseTime", new JsonPrimitive(200));
+        fishTrapJson.add("ironTrapBaseTime", new JsonPrimitive(600));
         fishTrapJson.add("ironTrapLureLevel", new JsonPrimitive(2));
         fishTrapJson.add("ironTrapLuckOfTheSeaLevel", new JsonPrimitive(2));
-        fishTrapJson.add("diamondTrapBaseTime", new JsonPrimitive(200));
+        fishTrapJson.add("diamondTrapBaseTime", new JsonPrimitive(400));
         fishTrapJson.add("diamondTrapLureLevel", new JsonPrimitive(3));
         fishTrapJson.add("diamondTrapLuckOfTheSeaLevel", new JsonPrimitive(3));
         return fishTrapJson;

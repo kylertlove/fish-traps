@@ -15,7 +15,6 @@ import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
 import net.nerds.fishtraps.blocks.baseTrap.BaseFishTrapBlock;
 import net.nerds.fishtraps.config.FishTrapValues;
-import net.nerds.fishtraps.config.FishTrapsConfig;
 
 public class DiamondFishTrapBlock extends BaseFishTrapBlock {
 
