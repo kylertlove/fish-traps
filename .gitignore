@@ -3,7 +3,7 @@
 
 # gradle
 
-.gradle/
+.gradle
 /build/
 build/
 out/
