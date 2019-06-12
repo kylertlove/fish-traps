@@ -8,7 +8,8 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SidedInventory;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -16,40 +17,53 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.loot.LootSupplier;
 import net.minecraft.world.loot.LootTables;
 import net.minecraft.world.loot.context.LootContext;
 import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
+import net.nerds.fishtraps.items.FishingBait;
 
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, Inventory {
+public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, SidedInventory {
 
-    private int tickCounter = 0; //counter to validate if waited
-    private int tickValidator; //how many ticks to wait
+    private long tickCounter = 0; //counter to validate if waited
+    private long tickValidator; //how many ticks to wait
+    private long tickValidatorPenlty;
     private int lureLevel;
     private int luckOfTheSeaLevel;
-    private int maxStorage = 1;
-    private boolean showFishBait = true;
+    private int maxStorage = 46;
+    private boolean showFishBait = false;
     public DefaultedList<ItemStack> inventory;
 
     public BaseFishTrapBlockEntity(BlockEntityType blockEntityType, int fishDelay, int lureLevel, int luckOfTheSeaLevel) {
         super(blockEntityType);
         inventory = DefaultedList.create(maxStorage, ItemStack.EMPTY);
-        this.tickValidator = fishDelay;
+        this.tickValidator = (long)fishDelay;
+        this.tickValidatorPenlty = this.tickValidator * 100;
         this.lureLevel = lureLevel;
         this.luckOfTheSeaLevel = luckOfTheSeaLevel;
     }
 
     @Override
     public void tick() {
-        if(tickCounter >= tickValidator) {
+        if(tickCounter >= getValidationNumber()) {
             tickCounter = 0;
             validateWaterAndFish();
         } else {
             tickCounter++;
+        }
+    }
+
+    private long getValidationNumber() {
+        showFishBait = this.inventory.get(0).getAmount() > 0;
+        if(showFishBait) {
+            return this.tickValidator;
+        } else {
+            return this.tickValidatorPenlty;
         }
     }
 
@@ -88,12 +102,21 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
         LootSupplier lootSupplier = this.world.getServer().getLootManager().getSupplier(LootTables.FISHING_GAMEPLAY);
         List<ItemStack> list = lootSupplier.getDrops(lootContextBuilder.build(LootContextTypes.FISHING));
         addItemsToInventory(list);
+        if(showFishBait) {
+            ItemStack fishBait = inventory.get(0);
+            if(fishBait.getItem() instanceof FishingBait) {
+                if(fishBait.applyDamage(1, world.random, null)){
+                    inventory.set(0, ItemStack.EMPTY);
+                    markDirty();
+                }
+            }
+        }
     }
 
     private void addItemsToInventory(List<ItemStack> itemStackList) {
         for(ItemStack itemStack : itemStackList) {
-            //loop through inventory looking for space
-            for(int i = 0; i < inventory.size(); i++) {
+            //loop through inventory looking for space. start at 1 to avoid bait space
+            for(int i = 1; i < inventory.size(); i++) {
                 if(inventory.get(i).isEmpty()) {
                     inventory.set(i, itemStack);
                     markDirty();
@@ -189,5 +212,27 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
 
     public boolean showFishBait() {
         return showFishBait;
+    }
+
+    @Override
+    public int[] getInvAvailableSlots(Direction direction) {
+        int[] arr = new int[46];
+        for(int i = 0; i < 46; i++) {
+            arr[i] = i;
+        }
+        return arr;
+    }
+
+    @Override
+    public boolean canInsertInvStack(int i, ItemStack itemStack, Direction direction) {
+        return i == 0 && itemStack.getItem() instanceof FishingBait;
+    }
+
+    @Override
+    public boolean canExtractInvStack(int i, ItemStack itemStack, Direction direction) {
+        if (direction == Direction.DOWN && i > 0) {
+            return true;
+        }
+        return false;
     }
 }

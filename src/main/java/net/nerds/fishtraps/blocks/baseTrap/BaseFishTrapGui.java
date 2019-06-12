@@ -10,16 +10,16 @@ import net.nerds.fishtraps.Fishtraps;
 
 @Environment(EnvType.CLIENT)
 public abstract class BaseFishTrapGui extends AbstractContainerScreen {
-    public Identifier fishGui = new Identifier(Fishtraps.MODID, "textures/gui/fish_trap_gui.png");
+
+    public Identifier fishGui = new Identifier(Fishtraps.MODID, "textures/gui/fish_trap_gui1.png");
     public BaseFishTrapBlockEntity tile;
     private String containerLabel = "";
-    private final int rows;
+    private final int rows = 5;
 
     public BaseFishTrapGui(BaseFishTrapBlockEntity fishTrapBlockEntity, BaseFishTrapContainer fishTrapContainer, String containerLabel, String textComponent) {
         super(fishTrapContainer, fishTrapContainer.playerInventory, new TextComponent(textComponent));
         this.tile = fishTrapBlockEntity;
-        this.rows = fishTrapContainer.getRows();
-        this.containerHeight = 114 + this.rows * 18;
+        this.containerHeight = 133 + this.rows * 18;
         this.containerLabel = containerLabel;
     }
 
@@ -38,16 +38,15 @@ public abstract class BaseFishTrapGui extends AbstractContainerScreen {
     @Override
     public void drawForeground(int int_1, int int_2) {
         this.font.draw(this.containerLabel, 8.0F, 6.0F, 4210752);
-        this.font.draw(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float)(this.containerHeight - 96 + 2), 4210752);
+        this.font.draw("Fish Bait", 34.0F, (float)(this.containerHeight - 102), 4210752);
     }
 
     @Override
     public void drawBackground(float v, int i, int i1) {
         GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.getTextureManager().bindTexture(fishGui);
-        int int_3 = (this.width - this.containerWidth) / 2;
-        int int_4 = (this.height - this.containerHeight) / 2;
-        this.blit(int_3, int_4, 0, 0, this.containerWidth, this.rows * 18 + 17);
-        this.blit(int_3, int_4 + this.rows * 18 + 17, 0, 126, this.containerWidth, 96);
+        int w = (this.width - this.containerWidth) / 2;
+        int h = (this.height - this.containerHeight) / 2;
+        this.blit(w, h, 0, 0, this.containerWidth, this.containerHeight);
     }
 }

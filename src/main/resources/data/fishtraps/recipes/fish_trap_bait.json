@@ -1,0 +1,20 @@
+
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "b  ",
+    "bbb",
+    "i i"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:bread"
+    },
+    "i": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "fishtraps:fish_trap_bait"
+  }
+}
