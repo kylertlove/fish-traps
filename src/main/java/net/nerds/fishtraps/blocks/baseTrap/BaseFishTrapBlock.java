@@ -22,12 +22,6 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
         throw new Error("Override this, dumbass");
     }
 
-
-    @Override
-    public BlockRenderType getRenderType(BlockState var1) {
-        return BlockRenderType.MODEL;
-    }
-
     @Override
     public void onBlockRemoved(BlockState blockState_1, World world_1, BlockPos blockPos_1, BlockState blockState_2, boolean boolean_1) {
         if (blockState_1.getBlock() != blockState_2.getBlock()) {
@@ -44,7 +38,7 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
     public boolean onBlockAction(BlockState blockState_1, World world_1, BlockPos blockPos_1, int int_1, int int_2) {
         super.onBlockAction(blockState_1, world_1, blockPos_1, int_1, int_2);
         BlockEntity blockEntity_1 = world_1.getBlockEntity(blockPos_1);
-        return blockEntity_1 == null ? false : blockEntity_1.onBlockAction(int_1, int_2);
+        return blockEntity_1 != null && blockEntity_1.onBlockAction(int_1, int_2);
     }
 
     /**
@@ -57,6 +51,11 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
         return new Identifier(identifier.getNamespace(), "blocks/" + identifier.getPath());
     }
 
+    /**
+     * Vanilla bug with the rendering water on sides:
+     * https://bugs.mojang.com/browse/MC-125351?page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel&showAll=true
+     * @return
+     */
     @Override
     public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;

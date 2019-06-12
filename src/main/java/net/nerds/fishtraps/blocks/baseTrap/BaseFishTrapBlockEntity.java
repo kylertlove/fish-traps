@@ -31,7 +31,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
     private int tickValidator; //how many ticks to wait
     private int lureLevel;
     private int luckOfTheSeaLevel;
-    private int maxStorage = 54;
+    private int maxStorage = 1;
     private boolean showFishBait = true;
     public DefaultedList<ItemStack> inventory;
 
@@ -174,7 +174,11 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
 
     @Override
     public boolean canPlayerUseInv(PlayerEntity playerEntity) {
-        return false;
+        if (this.world.getBlockEntity(this.pos) != this) {
+            return false;
+        } else {
+            return playerEntity.squaredDistanceTo((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
+        }
     }
 
     @Override

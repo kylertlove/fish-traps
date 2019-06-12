@@ -35,7 +35,7 @@ public class IronFishTrapRenderer extends BlockEntityRenderer<IronFishTrapBlockE
 
     public static void renderEntity(float float_1) {
         ItemStack bait = new ItemStack(FishTrapsManager.FISH_BAIT);
-        float float_2 = 0.53125F;
+        float float_2 = 0.8125F;
         GlStateManager.translatef(0.0F, 0.4F, 0.0F);
         GlStateManager.rotatef((float) MathHelper.lerp((double)float_1, 3, 3) * 10.0F, 0.0F, 1.0F, 0.0F);
         GlStateManager.translatef(0.0F, -0.2F, 0.0F);
