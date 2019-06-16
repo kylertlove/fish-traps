@@ -45,17 +45,19 @@ public class FishTrapsConfig {
 
 
     private JsonObject getDefaults() {
-        Map<String, Object> c = new HashMap<>();
         JsonObject fishTrapJson = new JsonObject();
-        fishTrapJson.add("woodenTrapBaseTime", new JsonPrimitive(900));
-        fishTrapJson.add("woodenTrapLureLevel", new JsonPrimitive(1));
-        fishTrapJson.add("woodenTrapLuckOfTheSeaLevel", new JsonPrimitive(1));
-        fishTrapJson.add("ironTrapBaseTime", new JsonPrimitive(600));
-        fishTrapJson.add("ironTrapLureLevel", new JsonPrimitive(2));
-        fishTrapJson.add("ironTrapLuckOfTheSeaLevel", new JsonPrimitive(2));
-        fishTrapJson.add("diamondTrapBaseTime", new JsonPrimitive(400));
-        fishTrapJson.add("diamondTrapLureLevel", new JsonPrimitive(3));
-        fishTrapJson.add("diamondTrapLuckOfTheSeaLevel", new JsonPrimitive(3));
+        fishTrapJson.add(FishTrapValues.WOODEN_TIME, new JsonPrimitive(900));
+        fishTrapJson.add(FishTrapValues.WOODEN_LURE, new JsonPrimitive(1));
+        fishTrapJson.add(FishTrapValues.WOODEN_LUCK, new JsonPrimitive(1));
+        fishTrapJson.add(FishTrapValues.IRON_TIME, new JsonPrimitive(600));
+        fishTrapJson.add(FishTrapValues.IRON_LURE, new JsonPrimitive(2));
+        fishTrapJson.add(FishTrapValues.IRON_LUCK, new JsonPrimitive(2));
+        fishTrapJson.add(FishTrapValues.DIAMOND_TIME, new JsonPrimitive(400));
+        fishTrapJson.add(FishTrapValues.DIAMOND_LURE, new JsonPrimitive(3));
+        fishTrapJson.add(FishTrapValues.DIAMOND_LUCK, new JsonPrimitive(3));
+        fishTrapJson.add(FishTrapValues.PENALTY_MULTIPLIER_AMOUNT, new JsonPrimitive(40));
+        fishTrapJson.add(FishTrapValues.SHOULD_PENALTY_MULTIPLIER, new JsonPrimitive(true));
+        fishTrapJson.add(FishTrapValues.FISH_BAIT_DURABILITY, new JsonPrimitive(400));
         return fishTrapJson;
     }
 
@@ -66,8 +68,20 @@ public class FishTrapsConfig {
             logger.error("Can not Format the value you entered for {} into a number.  reverting to default", key);
             return getDefaults().get(key).getAsInt();
         } catch (Exception ex) {
-            logger.error("Can not Format the value you entered for {} into a number.  reverting to default", key);
+            logger.error("Can not Format the value you entered for {} into a number..  reverting to default", key);
             return getDefaults().get(key).getAsInt();
+        }
+    }
+
+    public boolean getBooleanProperty(String key) {
+        try{
+            return config.get(key).getAsBoolean();
+        } catch (UnsupportedOperationException ex) {
+            logger.error("Can not Format the value you entered for {} into a boolean..  reverting to default", key);
+            return getDefaults().get(key).getAsBoolean();
+        } catch (Exception ex) {
+            logger.error("Can not Format the value you entered for {} into a boolean..  reverting to default", key);
+            return getDefaults().get(key).getAsBoolean();
         }
     }
 }

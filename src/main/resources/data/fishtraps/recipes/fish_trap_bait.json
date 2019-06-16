@@ -2,13 +2,13 @@
 {
   "type": "crafting_shaped",
   "pattern": [
-    "b  ",
-    "bbb",
-    "i i"
+    "   ",
+    "ib ",
+    "ii "
   ],
   "key": {
     "b": {
-      "item": "minecraft:bread"
+      "tag": "minecraft:fishes"
     },
     "i": {
       "item": "minecraft:iron_nugget"

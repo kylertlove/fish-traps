@@ -9,7 +9,6 @@ import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
@@ -23,6 +22,9 @@ import net.minecraft.world.loot.LootTables;
 import net.minecraft.world.loot.context.LootContext;
 import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
+import net.nerds.fishtraps.Fishtraps;
+import net.nerds.fishtraps.config.FishTrapValues;
+import net.nerds.fishtraps.config.FishTrapsConfig;
 import net.nerds.fishtraps.items.FishingBait;
 
 import java.util.Iterator;
@@ -32,9 +34,11 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
 
     private long tickCounter = 0; //counter to validate if waited
     private long tickValidator; //how many ticks to wait
-    private long tickValidatorPenlty;
+    private long tickValidatorPenalty;
+    private long tickCounterChecker;
     private int lureLevel;
     private int luckOfTheSeaLevel;
+    private boolean shouldPenalty;
     private int maxStorage = 46;
     private boolean showFishBait = false;
     public DefaultedList<ItemStack> inventory;
@@ -43,9 +47,11 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
         super(blockEntityType);
         inventory = DefaultedList.create(maxStorage, ItemStack.EMPTY);
         this.tickValidator = (long)fishDelay;
-        this.tickValidatorPenlty = this.tickValidator * 100;
+        this.tickValidatorPenalty = this.tickValidator * Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.PENALTY_MULTIPLIER_AMOUNT);
         this.lureLevel = lureLevel;
         this.luckOfTheSeaLevel = luckOfTheSeaLevel;
+        this.shouldPenalty = Fishtraps.fishTrapsConfig.getBooleanProperty(FishTrapValues.SHOULD_PENALTY_MULTIPLIER);
+        this.tickCounterChecker = this.shouldPenalty ? this.tickValidatorPenalty  : this.tickValidator;
     }
 
     @Override
@@ -60,10 +66,10 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
 
     private long getValidationNumber() {
         showFishBait = this.inventory.get(0).getAmount() > 0;
-        if(showFishBait) {
-            return this.tickValidator;
+        if(!showFishBait && this.shouldPenalty) {
+            return this.tickValidatorPenalty;
         } else {
-            return this.tickValidatorPenlty;
+            return this.tickValidator;
         }
     }
 

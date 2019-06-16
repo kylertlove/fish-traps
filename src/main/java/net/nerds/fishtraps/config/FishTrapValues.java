@@ -10,4 +10,7 @@ public class FishTrapValues {
     public static final String DIAMOND_TIME = "diamondTrapBaseTime";
     public static final String DIAMOND_LURE = "diamondTrapLureLevel";
     public static final String DIAMOND_LUCK = "diamondTrapLuckOfTheSeaLevel";
+    public static final String PENALTY_MULTIPLIER_AMOUNT = "trapPenaltyMultiplier";
+    public static final String SHOULD_PENALTY_MULTIPLIER = "shouldTrapHavePenalty";
+    public static final String FISH_BAIT_DURABILITY = "fishBaitDurability";
 }
