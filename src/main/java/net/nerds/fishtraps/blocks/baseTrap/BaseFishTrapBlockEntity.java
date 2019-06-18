@@ -1,6 +1,5 @@
 package net.nerds.fishtraps.blocks.baseTrap;
 
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -24,13 +23,12 @@ import net.minecraft.world.loot.context.LootContextParameters;
 import net.minecraft.world.loot.context.LootContextTypes;
 import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.config.FishTrapValues;
-import net.nerds.fishtraps.config.FishTrapsConfig;
 import net.nerds.fishtraps.items.FishingBait;
 
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, BlockEntityClientSerializable, SidedInventory {
+public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tickable, SidedInventory {
 
     private long tickCounter = 0; //counter to validate if waited
     private long tickValidator; //how many ticks to wait
@@ -136,16 +134,6 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
                 }
             }
         }
-    }
-
-    @Override
-    public void fromClientTag(CompoundTag tag) {
-        this.fromTag(tag);
-    }
-
-    @Override
-    public CompoundTag toClientTag(CompoundTag tag) {
-        return this.toTag(tag);
     }
 
     @Override
