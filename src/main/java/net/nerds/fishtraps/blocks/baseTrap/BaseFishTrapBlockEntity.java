@@ -63,7 +63,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
     }
 
     private long getValidationNumber() {
-        showFishBait = this.inventory.get(0).getAmount() > 0;
+        showFishBait = this.inventory.get(0).getCount() > 0;
         if(!showFishBait && this.shouldPenalty) {
             return this.tickValidatorPenalty;
         } else {
@@ -109,7 +109,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
         if(showFishBait) {
             ItemStack fishBait = inventory.get(0);
             if(fishBait.getItem() instanceof FishingBait) {
-                if(fishBait.applyDamage(1, world.random, null)){
+                if(fishBait.damage(1, world.random, null)){
                     inventory.set(0, ItemStack.EMPTY);
                     markDirty();
                 }
@@ -125,10 +125,10 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
                     inventory.set(i, itemStack);
                     markDirty();
                     break;
-                } else if(inventory.get(i).isEqualIgnoreTags(itemStack) &&
-                        (inventory.get(i).getAmount() + itemStack.getAmount() < 64) &&
-                        itemStack.canStack()) {
-                    inventory.set(i, new ItemStack(itemStack.getItem(), itemStack.getAmount() + inventory.get(i).getAmount()));
+                } else if(inventory.get(i).isItemEqual(itemStack) &&
+                        (inventory.get(i).getCount() + itemStack.getCount() < 64) &&
+                        itemStack.isStackable()) {
+                    inventory.set(i, new ItemStack(itemStack.getItem(), itemStack.getCount() + inventory.get(i).getCount()));
                     markDirty();
                     break;
                 }

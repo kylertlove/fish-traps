@@ -4,7 +4,7 @@ import com.mojang.blaze3d.platform.GlStateManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.AbstractContainerScreen;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.nerds.fishtraps.Fishtraps;
 
@@ -17,7 +17,7 @@ public abstract class BaseFishTrapGui extends AbstractContainerScreen {
     private final int rows = 5;
 
     public BaseFishTrapGui(BaseFishTrapBlockEntity fishTrapBlockEntity, BaseFishTrapContainer fishTrapContainer, String containerLabel, String textComponent) {
-        super(fishTrapContainer, fishTrapContainer.playerInventory, new TextComponent(textComponent));
+        super(fishTrapContainer, fishTrapContainer.playerInventory, new TranslatableText(textComponent));
         this.tile = fishTrapBlockEntity;
         this.containerHeight = 133 + this.rows * 18;
         this.containerLabel = containerLabel;
@@ -38,7 +38,7 @@ public abstract class BaseFishTrapGui extends AbstractContainerScreen {
     @Override
     public void drawForeground(int int_1, int int_2) {
         this.font.draw(this.containerLabel, 8.0F, 6.0F, 4210752);
-        this.font.draw("Fish Bait", 34.0F, (float)(this.containerHeight - 102), 4210752);
+        this.font.draw(new TranslatableText("Fish Bait").asString(), 34.0F, (float)(this.containerHeight - 102), 4210752);
     }
 
     @Override

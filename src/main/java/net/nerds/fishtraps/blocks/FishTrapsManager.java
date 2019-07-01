@@ -28,17 +28,17 @@ public class FishTrapsManager {
 		Registry.register(Registry.BLOCK, new Identifier(Fishtraps.MODID, "wooden_fish_trap"), WOODEN_FISH_TRAP);
 		Registry.register(Registry.ITEM,
 				new Identifier(Fishtraps.MODID, "wooden_fish_trap"),
-				new BlockItem(WOODEN_FISH_TRAP, new Item.Settings().itemGroup(Fishtraps.fishTraps)));
+				new BlockItem(WOODEN_FISH_TRAP, new Item.Settings().group(Fishtraps.fishTraps)));
 
 		Registry.register(Registry.BLOCK, new Identifier(Fishtraps.MODID, "iron_fish_trap"), IRON_FISH_TRAP);
 		Registry.register(Registry.ITEM,
 				new Identifier(Fishtraps.MODID, "iron_fish_trap"),
-				new BlockItem(IRON_FISH_TRAP, new Item.Settings().itemGroup(Fishtraps.fishTraps)));
+				new BlockItem(IRON_FISH_TRAP, new Item.Settings().group(Fishtraps.fishTraps)));
 
 		Registry.register(Registry.BLOCK, new Identifier(Fishtraps.MODID, "diamond_fish_trap"), DIAMOND_FISH_TRAP);
 		Registry.register(Registry.ITEM,
 				new Identifier(Fishtraps.MODID, "diamond_fish_trap"),
-				new BlockItem(DIAMOND_FISH_TRAP, new Item.Settings().itemGroup(Fishtraps.fishTraps)));
+				new BlockItem(DIAMOND_FISH_TRAP, new Item.Settings().group(Fishtraps.fishTraps)));
 	}
 
 	private static void itemInit() {
