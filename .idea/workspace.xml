@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5d8686f-157b-4617-aafb-9c6efbc93cd3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/FishTrapsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapGui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/items/FishingBait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/items/FishingBait.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -75,11 +68,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gradle.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+            <state relative-caret-position="442">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.3-mapped-1.jar!/net/minecraft/block/SeaPickleBlock.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1846">
+              <caret line="105" selection-start-line="105" selection-end-line="107" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -87,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="598">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -175,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/ironFishTrap/IronFishTrapRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/diamondFishTrap/DiamondFishTrapRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/woodenFishTrap/WoodenFishTrapBlock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/inventory/OutputSlot.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/inventory/BaitSlot.java" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapContainer.java" />
@@ -191,6 +201,7 @@
         <option value="$PROJECT_DIR$/run/config/fishTrap.json" />
         <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlockEntity.java" />
         <option value="$PROJECT_DIR$/gradle.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java" />
       </list>
     </option>
   </component>
@@ -224,13 +235,70 @@
             <path>
               <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
               <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
               <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="run" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="nerds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="nerds" type="462c0819:PsiDirectoryNode" />
+              <item name="fishtraps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="nerds" type="462c0819:PsiDirectoryNode" />
+              <item name="fishtraps" type="462c0819:PsiDirectoryNode" />
+              <item name="blocks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fish-traps" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fish-traps" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="net" type="462c0819:PsiDirectoryNode" />
+              <item name="nerds" type="462c0819:PsiDirectoryNode" />
+              <item name="fishtraps" type="462c0819:PsiDirectoryNode" />
+              <item name="blocks" type="462c0819:PsiDirectoryNode" />
+              <item name="baseTrap" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -271,7 +339,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.fish-traps [build]">
+  <component name="RunManager" selected="Gradle.volarius [runClient]">
     <configuration name="fish-traps [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -378,8 +446,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.fish-traps [build]" />
         <item itemvalue="Gradle.volarius [runClient]" />
+        <item itemvalue="Gradle.fish-traps [build]" />
         <item itemvalue="Gradle.fish-traps [cleanLoomMappings]" />
         <item itemvalue="Gradle.fish-traps [cleanLoomBinaries]" />
         <item itemvalue="Gradle.fish-traps [buildDependents]" />
@@ -400,14 +468,14 @@
     <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2546858" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25744212" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32977587" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.67129135" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.59445035" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6691569" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -425,28 +493,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/network/chat/TextComponent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding>
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/client/gui/screen/Screen.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="73" column="26" lean-forward="true" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-          <folding>
-            <element signature="e#2767#2768#0" expanded="true" />
-            <element signature="e#2807#2808#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.2-mapped-1.jar!/net/minecraft/client/gui/screen/ingame/AbstractContainerScreen.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -801,17 +847,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="442">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gradle.properties">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        <state relative-caret-position="598">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/fabric-loom/minecraft-1.14.3-mapped-1.jar!/net/minecraft/block/SeaPickleBlock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1846">
+          <caret line="105" selection-start-line="105" selection-end-line="107" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/net/nerds/fishtraps/blocks/baseTrap/BaseFishTrapBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
         </state>
       </provider>
     </entry>

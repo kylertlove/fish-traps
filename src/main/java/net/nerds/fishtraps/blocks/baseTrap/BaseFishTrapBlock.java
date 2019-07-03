@@ -2,7 +2,15 @@ package net.nerds.fishtraps.blocks.baseTrap;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.state.StateFactory;
+import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
@@ -12,9 +20,10 @@ import net.minecraft.world.World;
 
 public abstract class BaseFishTrapBlock extends Block implements BlockEntityProvider {
 
-
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public BaseFishTrapBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(getDefaultState().with(WATERLOGGED, true));
     }
 
     @Override
@@ -59,5 +68,21 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
     @Override
     public BlockRenderLayer getRenderLayer() {
         return BlockRenderLayer.CUTOUT;
+    }
+
+    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
+        stateFactory$Builder_1.add(WATERLOGGED);
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState blockState_1) {
+        return (Boolean)blockState_1.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(blockState_1);
+    }
+
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext itemPlacementContext) {
+        FluidState fluidState = itemPlacementContext.getWorld().getFluidState(itemPlacementContext.getBlockPos());
+        boolean waterLog = fluidState.matches(FluidTags.WATER) && fluidState.getLevel() == 8;
+        return super.getPlacementState(itemPlacementContext).with(WATERLOGGED, waterLog);
     }
 }
