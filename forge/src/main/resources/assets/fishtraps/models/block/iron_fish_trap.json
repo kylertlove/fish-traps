@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "fishtraps:block/iron_fish_trap"
+    }
+}

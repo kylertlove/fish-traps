@@ -1,0 +1,20 @@
+
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "   ",
+    "ib ",
+    "ii "
+  ],
+  "key": {
+    "b": {
+      "tag": "minecraft:fishes"
+    },
+    "i": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "fishtraps:fish_trap_bait"
+  }
+}
