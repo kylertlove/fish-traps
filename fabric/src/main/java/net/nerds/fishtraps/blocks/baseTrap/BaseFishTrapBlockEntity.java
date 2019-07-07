@@ -126,7 +126,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
                     markDirty();
                     break;
                 } else if(inventory.get(i).isItemEqual(itemStack) &&
-                        (inventory.get(i).getCount() + itemStack.getCount() < 64) &&
+                        (inventory.get(i).getCount() + itemStack.getCount() <= itemStack.getMaxCount()) &&
                         itemStack.isStackable()) {
                     inventory.set(i, new ItemStack(itemStack.getItem(), itemStack.getCount() + inventory.get(i).getCount()));
                     markDirty();
