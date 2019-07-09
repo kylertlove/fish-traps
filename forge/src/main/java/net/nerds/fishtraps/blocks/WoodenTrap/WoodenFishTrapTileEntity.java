@@ -28,26 +28,4 @@ public class WoodenFishTrapTileEntity extends BaseFishTrapTileEntity {
         return new WoodenFishTrapContainer(i, playerInventory, this);
     }
 
-    @Override
-    public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
-        return index == 0 && itemStackIn.getItem() instanceof FishBait;
-    }
-
-    @Override
-    public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
-        if (direction == Direction.DOWN && index > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public int[] getSlotsForFace(Direction side) {
-        int[] arr = new int[46];
-        for(int i = 0; i < 46; i++) {
-            arr[i] = i;
-        }
-        return arr;
-    }
-
 }

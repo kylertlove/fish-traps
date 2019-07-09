@@ -4,8 +4,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
@@ -15,16 +17,20 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.ServerWorld;
 import net.minecraft.world.storage.loot.*;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemHandlerHelper;
 import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.FishTrapsConfig;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class BaseFishTrapTileEntity extends LockableLootTileEntity implements ITickableTileEntity, ISidedInventory {
+public abstract class BaseFishTrapTileEntity extends LockableLootTileEntity implements ITickableTileEntity, IItemHandler {
 
     private NonNullList<ItemStack> inventory;
     private int maxStorage = 46;
@@ -134,8 +140,39 @@ public abstract class BaseFishTrapTileEntity extends LockableLootTileEntity impl
     }
 
     @Override
+    public int getSlots() {
+        //TODO
+        return 0;
+    }
+
+    @Override
     public ItemStack getStackInSlot(int i) {
         return inventory.get(i);
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+        //TODO
+        return null;
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack extractItem(int slot, int amount, boolean simulate) {
+        //TODO:
+        return null;
+    }
+
+    @Override
+    public int getSlotLimit(int slot) {
+        return inventory.get(slot).getMaxStackSize();
+    }
+
+    @Override
+    public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+        //TODO:  impl
+        return false;
     }
 
     @Override
@@ -194,27 +231,5 @@ public abstract class BaseFishTrapTileEntity extends LockableLootTileEntity impl
         if (!this.checkLootAndRead(compound)) {
             ItemStackHelper.loadAllItems(compound, this.inventory);
         }
-    }
-
-    @Override
-    public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
-        return index == 0 && itemStackIn.getItem() instanceof FishBait;
-    }
-
-    @Override
-    public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
-        if (direction == Direction.DOWN && index > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public int[] getSlotsForFace(Direction side) {
-        int[] arr = new int[46];
-        for(int i = 1; i < 46; i++) {
-            arr[i] = i;
-        }
-        return arr;
     }
 }
