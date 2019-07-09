@@ -1,27 +1,108 @@
 package net.nerds.fishtraps.blocks;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.ServerWorld;
+import net.minecraft.world.storage.loot.*;
+import net.nerds.fishtraps.FishTrapsManager;
+import net.nerds.fishtraps.items.FishBait;
 
-import javax.annotation.Nullable;
+import java.util.List;
+import java.util.Objects;
 
-public class WoodenFishTrapTileEntity extends LockableLootTileEntity {
+public class WoodenFishTrapTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
 
     private NonNullList<ItemStack> inventory;
     private int maxStorage = 46;
+    private long tickCounter = 0;
+    private long tickCheck = 100;
+    private int luckOfTheSeaLevel = 3;
+    private int lureLevel = 3;
 
-    public WoodenFishTrapTileEntity(TileEntityType<?> type) {
-        super(type);
+    public WoodenFishTrapTileEntity() {
+        super(FishTrapsManager.woodenFishTrapEntityType);
         inventory = NonNullList.withSize(maxStorage, ItemStack.EMPTY);
+    }
+
+    @Override
+    public void tick() {
+        if(tickCounter >= tickCheck) {
+            tickCounter = 0;
+            validateWaterAndFish();
+        } else {
+            tickCounter++;
+        }
+    }
+
+    private void validateWaterAndFish() {
+        if(!world.isRemote) {
+            boolean isSurroundedByWater = true;
+            Iterable<BlockPos> waterCheckInterator = BlockPos.getAllInBoxMutable(new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 1),
+                    new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 1));
+            for(BlockPos blockPos : waterCheckInterator) {
+                Block block = world.getBlockState(blockPos).getBlock();
+                if(world.getTileEntity(pos) != null && (block != Blocks.WATER && !(block instanceof WoodenFishTrap))) {
+                    isSurroundedByWater = false;
+                    break;
+                }
+            }
+            if(isSurroundedByWater) {
+                fish();
+            }
+        }
+    }
+
+    private void fish() {
+        ItemStack itemStack = new ItemStack(Items.FISHING_ROD);
+        itemStack.addEnchantment(Enchantments.LURE, this.lureLevel);
+        itemStack.addEnchantment(Enchantments.LUCK_OF_THE_SEA, this.luckOfTheSeaLevel);
+        LootContext.Builder lootContextBuilder = (new LootContext.Builder((ServerWorld)this.world))
+                .withParameter(LootParameters.POSITION, new BlockPos(pos))
+                .withParameter(LootParameters.TOOL, itemStack)
+                .withRandom(world.rand)
+                .withLuck(this.lureLevel);
+        LootTable lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING);
+        List<ItemStack> list = lootTable.generate(lootContextBuilder.build(LootParameterSets.FISHING));
+        addItemsToInventory(list);
+        ItemStack fishBait = inventory.get(0);
+        if(fishBait.getItem() instanceof FishBait) {
+            if(fishBait.attemptDamageItem(1, world.rand, null)){
+                inventory.set(0, ItemStack.EMPTY);
+                markDirty();
+            }
+        }
+    }
+
+    private void addItemsToInventory(List<ItemStack> list) {
+        list.stream().forEach(itemStack -> {
+            for(int i = 1; i < inventory.size(); i++) {
+                if(inventory.get(i).isEmpty()) {
+                    inventory.set(i, itemStack);
+                    markDirty();
+                    break;
+                } else if(inventory.get(i).isItemEqual(itemStack) &&
+                        (inventory.get(i).getCount() + itemStack.getCount() <= itemStack.getMaxStackSize()) &&
+                        itemStack.isStackable()) {
+                    inventory.set(i, new ItemStack(itemStack.getItem(), itemStack.getCount() + inventory.get(i).getCount()));
+                    markDirty();
+                    break;
+                }
+            }
+        });
     }
 
     @Override
@@ -95,7 +176,6 @@ public class WoodenFishTrapTileEntity extends LockableLootTileEntity {
         if (!this.checkLootAndRead(compound)) {
             ItemStackHelper.loadAllItems(compound, this.inventory);
         }
-
     }
 
     @Override

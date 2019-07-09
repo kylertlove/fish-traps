@@ -1,10 +1,18 @@
 package net.nerds.fishtraps.blocks;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.stats.Stats;
-import net.minecraft.tileentity.BarrelTileEntity;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.BooleanProperty;
+import net.minecraft.state.StateContainer;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Hand;
@@ -17,10 +25,12 @@ import net.nerds.fishtraps.Fishtraps;
 public class WoodenFishTrap extends Block implements IWaterLoggable {
 
     private static String name = "wooden_fish_trap";
+    public static BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public WoodenFishTrap() {
         super(Block.Properties.from(Blocks.OAK_LOG));
         this.setRegistryName(Fishtraps.MODID, name);
+        this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.TRUE));
     }
 
     @Override
@@ -30,7 +40,7 @@ public class WoodenFishTrap extends Block implements IWaterLoggable {
 
     @Override
     public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
-        return new WoodenFishTrapTileEntity(FishTrapsManager.woodenFishTrapEntityType);
+        return new WoodenFishTrapTileEntity();
     }
 
     @Override
@@ -40,14 +50,11 @@ public class WoodenFishTrap extends Block implements IWaterLoggable {
 
     @Override
     public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(!worldIn.isRemote)
-        {
+        if(!worldIn.isRemote) {
             INamedContainerProvider containerProvider = getContainer(state, worldIn, pos);
-
             if(containerProvider != null)
                 player.openContainer(containerProvider);
         }
-
         return true;
     }
 
@@ -58,4 +65,17 @@ public class WoodenFishTrap extends Block implements IWaterLoggable {
         return tileentity instanceof INamedContainerProvider ? (INamedContainerProvider) tileentity : null;
     }
 
+    @Override
+    public BlockState getStateForPlacement(BlockItemUseContext context) {
+        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        return this.getDefaultState().with(WATERLOGGED, ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8);
+    }
+    @Override
+    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(WATERLOGGED);
+    }
+    @Override
+    public IFluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
+    }
 }
