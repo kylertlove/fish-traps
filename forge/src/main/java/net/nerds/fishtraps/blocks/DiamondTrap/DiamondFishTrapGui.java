@@ -1,4 +1,4 @@
-package net.nerds.fishtraps.blocks;
+package net.nerds.fishtraps.blocks.DiamondTrap;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
@@ -10,12 +10,12 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.nerds.fishtraps.Fishtraps;
 
-public class WoodenFishTrapGui extends ContainerScreen<WoodenFishTrapContainer> implements IHasContainer<WoodenFishTrapContainer> {
+public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer> implements IHasContainer<DiamondFishTrapContainer> {
 
     private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui1.png");
     private int rows = 5;
 
-    public WoodenFishTrapGui(WoodenFishTrapContainer container, PlayerInventory playerInventory, ITextComponent iTextComponent) {
+    public DiamondFishTrapGui(DiamondFishTrapContainer container, PlayerInventory playerInventory, ITextComponent iTextComponent) {
         super(container, playerInventory, iTextComponent);
         this.ySize = 133 + this.rows * 18;
         this.xSize = 176;
@@ -23,8 +23,8 @@ public class WoodenFishTrapGui extends ContainerScreen<WoodenFishTrapContainer> 
 
     protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
         super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        String name = new TranslationTextComponent("fish_trap_gui").getString();
-        font.drawString(name, (xSize - 24) / 2 - font.getStringWidth(name) / 2, 7, 0x404040);
+        String name = new TranslationTextComponent("block.fishtraps.diamond_fish_trap").getString();
+        font.drawString(name, 8, 6, 0x404040);
     }
 
     @Override

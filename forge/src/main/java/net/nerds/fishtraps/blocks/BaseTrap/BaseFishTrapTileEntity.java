@@ -1,50 +1,68 @@
-package net.nerds.fishtraps.blocks;
+package net.nerds.fishtraps.blocks.BaseTrap;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
+import net.minecraft.tileentity.TileEntityType;
+import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.ServerWorld;
 import net.minecraft.world.storage.loot.*;
-import net.nerds.fishtraps.FishTrapsManager;
 import net.nerds.fishtraps.items.FishBait;
+import net.nerds.fishtraps.util.FishTrapsConfig;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-public class WoodenFishTrapTileEntity extends LockableLootTileEntity implements ITickableTileEntity {
+public abstract class BaseFishTrapTileEntity extends LockableLootTileEntity implements ITickableTileEntity, ISidedInventory {
 
     private NonNullList<ItemStack> inventory;
     private int maxStorage = 46;
     private long tickCounter = 0;
-    private long tickCheck = 100;
-    private int luckOfTheSeaLevel = 3;
-    private int lureLevel = 3;
+    private long tickCheck;
+    private int luckOfTheSeaLevel;
+    private int lureLevel;
+    private boolean shouldPenalize;
+    private int penaltyMultiplier;
+    private int penaltyTickCheck;
+    private boolean showFishBait = false;
 
-    public WoodenFishTrapTileEntity() {
-        super(FishTrapsManager.woodenFishTrapEntityType);
+    public BaseFishTrapTileEntity(TileEntityType tileEntityType, long delay, int lure, int luck) {
+        super(tileEntityType);
         inventory = NonNullList.withSize(maxStorage, ItemStack.EMPTY);
+        this.luckOfTheSeaLevel = luck;
+        this.lureLevel = lure;
+        this.shouldPenalize = FishTrapsConfig.FISH_TRAPS_CONFIG.shouldTrapHavePenalty.get();
+        this.penaltyMultiplier = FishTrapsConfig.FISH_TRAPS_CONFIG.trapPenaltyMultiplier.get();
+        this.penaltyTickCheck = (int)delay * this.penaltyMultiplier;
+        this.tickCheck = delay;
     }
 
     @Override
     public void tick() {
-        if(tickCounter >= tickCheck) {
+        if(tickCounter >= getValidationNumber()) {
             tickCounter = 0;
             validateWaterAndFish();
         } else {
             tickCounter++;
+        }
+    }
+    private long getValidationNumber() {
+        showFishBait = this.inventory.get(0).getCount() > 0;
+        if(!showFishBait && this.shouldPenalize) {
+            return this.penaltyTickCheck;
+        } else {
+            return this.tickCheck;
         }
     }
 
@@ -55,7 +73,7 @@ public class WoodenFishTrapTileEntity extends LockableLootTileEntity implements 
                     new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 1));
             for(BlockPos blockPos : waterCheckInterator) {
                 Block block = world.getBlockState(blockPos).getBlock();
-                if(world.getTileEntity(pos) != null && (block != Blocks.WATER && !(block instanceof WoodenFishTrap))) {
+                if(world.getTileEntity(pos) != null && (block != Blocks.WATER && !(block instanceof BaseFishTrapBlock))) {
                     isSurroundedByWater = false;
                     break;
                 }
@@ -179,12 +197,24 @@ public class WoodenFishTrapTileEntity extends LockableLootTileEntity implements 
     }
 
     @Override
-    protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("fishtraps.wooden-fish-trap");
+    public boolean canInsertItem(int index, ItemStack itemStackIn, @Nullable Direction direction) {
+        return index == 0 && itemStackIn.getItem() instanceof FishBait;
     }
 
     @Override
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
-        return new WoodenFishTrapContainer(i, playerInventory, this);
+    public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
+        if (direction == Direction.DOWN && index > 0) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public int[] getSlotsForFace(Direction side) {
+        int[] arr = new int[46];
+        for(int i = 1; i < 46; i++) {
+            arr[i] = i;
+        }
+        return arr;
     }
 }

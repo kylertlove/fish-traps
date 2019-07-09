@@ -1,23 +1,23 @@
-package net.nerds.fishtraps.blocks;
+package net.nerds.fishtraps.blocks.BaseTrap;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
-import net.nerds.fishtraps.FishTrapsManager;
 import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.BaitSlot;
 import net.nerds.fishtraps.util.OutputSlot;
 
-public class WoodenFishTrapContainer extends Container {
+public abstract class BaseFishTrapContainer extends Container {
 
     private PlayerInventory playerInventory;
     private IInventory inventory;
 
-    public WoodenFishTrapContainer(int i, PlayerInventory playerInventory, IInventory inventory) {
-        super(FishTrapsManager.woodenFishTrapContainerContainerType, i);
+    public BaseFishTrapContainer(int i, PlayerInventory playerInventory, IInventory inventory, ContainerType containerType) {
+        super(containerType, i);
         this.playerInventory = playerInventory;
         this.inventory = inventory;
         int invCountNum = 0;
@@ -44,16 +44,10 @@ public class WoodenFishTrapContainer extends Container {
         }
     }
 
-    public static WoodenFishTrapContainer createWoodenContainer(int windowId, PlayerInventory playerInventory, IInventory inventory) {
-        return new WoodenFishTrapContainer(windowId, playerInventory, inventory);
-    }
-
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
         return this.inventory.isUsableByPlayer(playerIn);
     }
-
-
 
     @Override
     public ItemStack transferStackInSlot(PlayerEntity player, int slotIndex) {
