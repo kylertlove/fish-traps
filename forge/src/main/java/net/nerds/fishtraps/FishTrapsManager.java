@@ -103,19 +103,19 @@ public class FishTrapsManager {
             return new WoodenFishTrapContainer(windowId, playerInv, new WoodenFishTrapTileEntity(
                     FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapBaseTime.get(),
                     FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLureLevel.get(),
-                    FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLuckLevel.get()));
+                    FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLuckLevel.get()).getInventory());
         }).setRegistryName(FishTrapNames.WOODEN_FISH_TRAP_CONTAINER_TYPE));
         event.getRegistry().register(new ContainerType<IronFishTrapContainer>((windowId, playerInv) -> {
             return new IronFishTrapContainer(windowId, playerInv, new IronFishTrapTileEntity(
                     FishTrapsConfig.FISH_TRAPS_CONFIG.ironTrapBaseTime.get(),
                     FishTrapsConfig.FISH_TRAPS_CONFIG.ironTrapLureLevel.get(),
-                    FishTrapsConfig.FISH_TRAPS_CONFIG.ironTrapLuckLevel.get()));
+                    FishTrapsConfig.FISH_TRAPS_CONFIG.ironTrapLuckLevel.get()).getInventory());
         }).setRegistryName(FishTrapNames.IRON_FISH_TRAP_CONTAINER_TYPE));
         event.getRegistry().register(new ContainerType<DiamondFishTrapContainer>((windowId, playerInv) -> {
             return new DiamondFishTrapContainer(windowId, playerInv, new DiamondFishTrapTileEntity(
                     FishTrapsConfig.FISH_TRAPS_CONFIG.diamondTrapBaseTime.get(),
                     FishTrapsConfig.FISH_TRAPS_CONFIG.diamondTrapLureLevel.get(),
-                    FishTrapsConfig.FISH_TRAPS_CONFIG.diamondTrapLuckLevel.get()));
+                    FishTrapsConfig.FISH_TRAPS_CONFIG.diamondTrapLuckLevel.get()).getInventory());
         }).setRegistryName(FishTrapNames.DIAMOND_FISH_TRAP_CONTAINER_TYPE));
     }
 }

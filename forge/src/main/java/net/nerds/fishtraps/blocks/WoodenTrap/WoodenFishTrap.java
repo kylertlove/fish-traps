@@ -22,7 +22,10 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.BaseTrap.BaseFishTrapBlock;
+import net.nerds.fishtraps.blocks.IronTrap.IronFishTrapTileEntity;
 import net.nerds.fishtraps.util.FishTrapsConfig;
+
+import javax.annotation.Nullable;
 
 public class WoodenFishTrap extends BaseFishTrapBlock {
 
@@ -32,8 +35,9 @@ public class WoodenFishTrap extends BaseFishTrapBlock {
         super(name);
     }
 
+    @Nullable
     @Override
-    public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
+    public TileEntity createNewTileEntity(IBlockReader worldIn) {
         return new WoodenFishTrapTileEntity(
                 FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapBaseTime.get(),
                 FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLureLevel.get(),

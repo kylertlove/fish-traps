@@ -1,9 +1,6 @@
 package net.nerds.fishtraps.blocks.BaseTrap;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.IWaterLoggable;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
@@ -22,7 +19,7 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 import net.nerds.fishtraps.Fishtraps;
 
-public abstract class BaseFishTrapBlock extends Block implements IWaterLoggable {
+public abstract class BaseFishTrapBlock extends ContainerBlock implements IWaterLoggable {
 
     public static BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
@@ -53,8 +50,7 @@ public abstract class BaseFishTrapBlock extends Block implements IWaterLoggable 
     }
 
     @Override
-    public INamedContainerProvider getContainer(BlockState state, World world, BlockPos pos)
-    {
+    public INamedContainerProvider getContainer(BlockState state, World world, BlockPos pos) {
         TileEntity tileentity = world.getTileEntity(pos);
         return tileentity instanceof INamedContainerProvider ? (INamedContainerProvider) tileentity : null;
     }
@@ -79,9 +75,14 @@ public abstract class BaseFishTrapBlock extends Block implements IWaterLoggable 
         if (state.getBlock() != newState.getBlock()) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
             if (tileentity instanceof BaseFishTrapTileEntity) {
-                InventoryHelper.dropInventoryItems(worldIn, pos, (BaseFishTrapTileEntity) tileentity);
+                InventoryHelper.dropInventoryItems(worldIn, pos, ((BaseFishTrapTileEntity) tileentity).getInventory());
             }
             super.onReplaced(state, worldIn, pos, newState, isMoving);
         }
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 }
