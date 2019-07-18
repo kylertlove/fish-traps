@@ -22,7 +22,7 @@ public class FishTrapItemHandler implements IItemHandler {
 
     public void addListToInventory(List<ItemStack> list) {
         list.forEach(itemStack -> {
-            for(int i = 1; i <= baseFishTrapTileEntity.getInventory().getInventory().size(); i++) {
+            for(int i = 1; i <= baseFishTrapTileEntity.getInventory().getInventory().size() - 1; i++) {
                 if(insertItem(i, itemStack, false) == ItemStack.EMPTY) {
                     break;
                 }
