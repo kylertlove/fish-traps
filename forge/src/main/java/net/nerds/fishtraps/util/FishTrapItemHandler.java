@@ -45,6 +45,11 @@ public class FishTrapItemHandler implements IItemHandler {
     @Override
     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if(getStackInSlot(slot).isEmpty()) {
+            if(slot == 0 && stack.getItem() instanceof FishBait) {
+                baseFishTrapTileEntity.getInventory().getInventory().set(slot, stack);
+                baseFishTrapTileEntity.markDirty();
+                return ItemStack.EMPTY;
+            }
             if(!simulate) {
                 baseFishTrapTileEntity.getInventory().getInventory().set(slot, stack);
                 baseFishTrapTileEntity.markDirty();

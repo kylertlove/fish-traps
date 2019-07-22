@@ -123,9 +123,11 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side)
     {
-        if(side == Direction.DOWN)
+        if(side == Direction.DOWN || side == Direction.UP) {
             return cap.orEmpty(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, inventoryHolder);
-        else return LazyOptional.empty();
+        } else {
+            return LazyOptional.empty();
+        }
     }
 
     public FishTrapInventory getInventory() {
