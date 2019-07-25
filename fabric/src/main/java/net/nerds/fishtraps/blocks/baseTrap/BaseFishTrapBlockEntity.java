@@ -43,7 +43,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
 
     public BaseFishTrapBlockEntity(BlockEntityType blockEntityType, int fishDelay, int lureLevel, int luckOfTheSeaLevel) {
         super(blockEntityType);
-        inventory = DefaultedList.create(maxStorage, ItemStack.EMPTY);
+        inventory = DefaultedList.ofSize(maxStorage, ItemStack.EMPTY);
         this.tickValidator = (long)fishDelay;
         this.tickValidatorPenalty = this.tickValidator * Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.PENALTY_MULTIPLIER_AMOUNT);
         this.lureLevel = lureLevel;
@@ -139,7 +139,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
     @Override
     public void fromTag(CompoundTag nbt) {
         super.fromTag(nbt);
-        inventory = DefaultedList.create(maxStorage, ItemStack.EMPTY);
+        inventory = DefaultedList.ofSize(maxStorage, ItemStack.EMPTY);
         Inventories.fromTag(nbt, this.inventory);
     }
 
