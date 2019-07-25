@@ -14,7 +14,7 @@ import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.ServerWorld;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.storage.loot.*;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -91,7 +91,7 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
         ItemStack itemStack = new ItemStack(Items.FISHING_ROD);
         itemStack.addEnchantment(Enchantments.LURE, this.lureLevel);
         itemStack.addEnchantment(Enchantments.LUCK_OF_THE_SEA, this.luckOfTheSeaLevel);
-        LootContext.Builder lootContextBuilder = (new LootContext.Builder((ServerWorld)this.world))
+        LootContext.Builder lootContextBuilder = (new LootContext.Builder((ServerWorld) this.world))
                 .withParameter(LootParameters.POSITION, new BlockPos(pos))
                 .withParameter(LootParameters.TOOL, itemStack)
                 .withRandom(world.rand)
