@@ -7,6 +7,7 @@ import net.minecraft.block.IWaterLoggable;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.fluid.IFluidState;
+import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
@@ -31,16 +32,13 @@ public class WoodenFishTrap extends BaseFishTrapBlock {
 
     private static String name = "wooden_fish_trap";
 
-    public WoodenFishTrap() {
+    public WoodenFishTrap(String name) {
         super(name);
     }
 
     @Nullable
     @Override
-    public TileEntity createNewTileEntity(IBlockReader worldIn) {
-        return new WoodenFishTrapTileEntity(
-                FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapBaseTime.get(),
-                FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLureLevel.get(),
-                FishTrapsConfig.FISH_TRAPS_CONFIG.woodenTrapLuckLevel.get());
+    public TileEntity createNewTileEntity(World worldIn, int meta) {
+        return WoodenFishTrapTileEntity();
     }
 }

@@ -29,7 +29,6 @@ import org.apache.logging.log4j.Logger;
 import java.util.Objects;
 import java.util.function.Supplier;
 
-@Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class FishTrapsManager {
 
     private static final Logger LOGGER = LogManager.getLogger();
