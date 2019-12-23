@@ -2,8 +2,11 @@ package net.nerds.fishtraps.blocks.diamondFishTrap;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.nerds.fishtraps.blocks.FishTrapsManager;
@@ -12,15 +15,14 @@ public class DiamondFishTrapRenderer extends BlockEntityRenderer<DiamondFishTrap
 
     private DiamondFishTrapBlockEntity diamondFishTrapBlockEntity;
 
-    public void render(DiamondFishTrapBlockEntity blockEntity, double x, double y, double z, float float_1, int int_1) {
-        super.render(blockEntity, x, y, z, float_1, int_1);
-        diamondFishTrapBlockEntity = blockEntity;
-        this.method_3590(x, y, z, float_1, int_1);
+    public DiamondFishTrapRenderer(BlockEntityRenderDispatcher blockEntityRenderDispatcher_1) {
+        super(blockEntityRenderDispatcher_1);
     }
 
+
     @Override
-    public boolean method_3563(DiamondFishTrapBlockEntity blockEntity_1) {
-        return true;
+    public void render(DiamondFishTrapBlockEntity blockEntity, float v, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int i1) {
+        diamondFishTrapBlockEntity = blockEntity;
     }
 
 
@@ -41,7 +43,6 @@ public class DiamondFishTrapRenderer extends BlockEntityRenderer<DiamondFishTrap
         GlStateManager.translatef(0.0F, -0.2F, 0.0F);
         GlStateManager.rotatef(-30.0F, 1.0F, 0.0F, 0.0F);
         GlStateManager.scalef(float_2, float_2, float_2);
-        MinecraftClient.getInstance().getItemRenderer().renderItem(bait, ModelTransformation.Type.NONE);
+       // MinecraftClient.getInstance().getItemRenderer().renderItem(bait, ModelTransformation.Type.NONE);
     }
-
 }

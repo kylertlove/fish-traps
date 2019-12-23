@@ -10,17 +10,17 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.context.LootContext;
+import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Tickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.loot.LootSupplier;
-import net.minecraft.world.loot.LootTables;
-import net.minecraft.world.loot.context.LootContext;
-import net.minecraft.world.loot.context.LootContextParameters;
-import net.minecraft.world.loot.context.LootContextTypes;
 import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.config.FishTrapValues;
 import net.nerds.fishtraps.items.FishingBait;
@@ -103,8 +103,8 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
                 .put(LootContextParameters.POSITION, new BlockPos(pos))
                 .put(LootContextParameters.TOOL, itemStack)
                 .setRandom(world.random).setLuck((float)this.lureLevel);
-        LootSupplier lootSupplier = this.world.getServer().getLootManager().getSupplier(LootTables.FISHING_GAMEPLAY);
-        List<ItemStack> list = lootSupplier.getDrops(lootContextBuilder.build(LootContextTypes.FISHING));
+        LootTable lootTable = this.world.getServer().getLootManager().getSupplier(LootTables.FISHING_GAMEPLAY);
+        List<ItemStack> list = lootTable.getDrops(lootContextBuilder.build(LootContextTypes.FISHING));
         addItemsToInventory(list);
         if(showFishBait) {
             ItemStack fishBait = inventory.get(0);

@@ -6,10 +6,9 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.state.StateFactory;
+import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.state.property.Property;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
@@ -60,18 +59,8 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
         return new Identifier(identifier.getNamespace(), "blocks/" + identifier.getPath());
     }
 
-    /**
-     * Vanilla bug with the rendering water on sides:
-     * https://bugs.mojang.com/browse/MC-125351?page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel&showAll=true
-     * @return
-     */
-    @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
-
-    protected void appendProperties(StateFactory.Builder<Block, BlockState> stateFactory$Builder_1) {
-        stateFactory$Builder_1.add(WATERLOGGED);
+    protected void appendProperties(StateManager.Builder<Block, BlockState> manager) {
+        manager.add(WATERLOGGED);
     }
 
     @Override

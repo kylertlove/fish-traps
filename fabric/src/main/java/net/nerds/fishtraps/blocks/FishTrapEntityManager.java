@@ -2,7 +2,7 @@ package net.nerds.fishtraps.blocks;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
@@ -76,8 +76,8 @@ public class FishTrapEntityManager {
 
     @Environment(EnvType.CLIENT)
     public static void registerEntityRenderers() {
-        BlockEntityRendererRegistry.INSTANCE.register(WoodenFishTrapBlockEntity.class, new WoodenFishTrapRenderer());
-        BlockEntityRendererRegistry.INSTANCE.register(IronFishTrapBlockEntity.class, new IronFishTrapRenderer());
-        BlockEntityRendererRegistry.INSTANCE.register(DiamondFishTrapBlockEntity.class, new DiamondFishTrapRenderer());
+//        BlockEntityRendererRegistry.INSTANCE.register(WoodenFishTrapBlockEntity.class, new WoodenFishTrapRenderer());
+//        BlockEntityRendererRegistry.INSTANCE.register(IronFishTrapBlockEntity.class, new IronFishTrapRenderer());
+//        BlockEntityRendererRegistry.INSTANCE.register(DiamondFishTrapBlockEntity.class, new DiamondFishTrapRenderer());
     }
 }
