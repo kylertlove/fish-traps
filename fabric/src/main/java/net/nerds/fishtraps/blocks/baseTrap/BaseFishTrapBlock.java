@@ -59,6 +59,11 @@ public abstract class BaseFishTrapBlock extends Block implements BlockEntityProv
         return new Identifier(identifier.getNamespace(), "blocks/" + identifier.getPath());
     }
 
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
     protected void appendProperties(StateManager.Builder<Block, BlockState> manager) {
         manager.add(WATERLOGGED);
     }

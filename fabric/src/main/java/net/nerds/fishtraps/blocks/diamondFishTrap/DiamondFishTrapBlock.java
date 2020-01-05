@@ -20,7 +20,7 @@ import net.nerds.fishtraps.config.FishTrapValues;
 public class DiamondFishTrapBlock extends BaseFishTrapBlock {
 
     public DiamondFishTrapBlock() {
-        super(FabricBlockSettings.of(Material.METAL).hardness(3.5f).build());
+        super(FabricBlockSettings.of(Material.METAL).hardness(3.5f).nonOpaque().build());
     }
     @Override
     public BlockEntity createBlockEntity(BlockView var1) {

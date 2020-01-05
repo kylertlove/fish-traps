@@ -20,7 +20,7 @@ import net.nerds.fishtraps.config.FishTrapValues;
 public class IronFishTrapBlock extends BaseFishTrapBlock {
 
     public IronFishTrapBlock() {
-        super(FabricBlockSettings.of(Material.METAL).hardness(3.5f).build());
+        super(FabricBlockSettings.of(Material.METAL).hardness(3.5f).nonOpaque().build());
     }
 
     @Override

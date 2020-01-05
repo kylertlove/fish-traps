@@ -9,8 +9,13 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.MobSpawnerLogic;
+import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.FishTrapsManager;
 
 @Environment(EnvType.CLIENT)
@@ -26,7 +31,26 @@ public class WoodenFishTrapRenderer extends BlockEntityRenderer<WoodenFishTrapBl
     public void render(WoodenFishTrapBlockEntity blockEntity, float delta, MatrixStack stack, VertexConsumerProvider vcp, int x, int y) {
         //super.render(blockEntity, x, y, z, float_1, int_1);
         woodenFishTrapBlockEntity = blockEntity;
-        //this.method_3590(x, y, z, float_1, int_1);
+        stack.push();
+        stack.translate(0.5D, 0.0D, 0.5D);
+        //MobSpawnerLogic mobSpawnerLogic = blockEntity.getLogic();
+        //Entity entity = new ItemEntity(blockEntity.getWorld(), x, y, );
+//        if (entity != null) {
+            float g = 0.53125F;
+//            float h = Math.max(entity.getWidth(), entity.getHeight());
+//            if ((double)h > 1.0D) {
+//                g /= h;
+//            }
+
+            stack.translate(0.0D, 0.4000000059604645D, 0.0D);
+            stack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(y));
+            stack.translate(0.0D, -0.20000000298023224D, 0.0D);
+            stack.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(-30.0F));
+            stack.scale(g, g, g);
+           // MinecraftClient.getInstance().getEntityRenderManager().render(entity, 0.0D, 0.0D, 0.0D, 0.0F, f, stack, vcp, x);
+        //}
+
+        stack.pop();
     }
 
 //    @Override

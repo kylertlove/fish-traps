@@ -20,7 +20,7 @@ import net.nerds.fishtraps.config.FishTrapValues;
 public class WoodenFishTrapBlock extends BaseFishTrapBlock {
 
     public WoodenFishTrapBlock() {
-        super(FabricBlockSettings.of(Material.WOOD).hardness(3.5f).build());
+        super(FabricBlockSettings.of(Material.WOOD).hardness(3.5f).nonOpaque().build());
     }
 
     @Override
