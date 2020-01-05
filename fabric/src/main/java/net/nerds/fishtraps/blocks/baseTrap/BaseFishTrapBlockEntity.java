@@ -141,6 +141,7 @@ public abstract class BaseFishTrapBlockEntity extends BlockEntity implements Tic
         super.fromTag(nbt);
         inventory = DefaultedList.ofSize(maxStorage, ItemStack.EMPTY);
         Inventories.fromTag(nbt, this.inventory);
+        showFishBait = this.inventory.get(0).getCount() > 0;
     }
 
     @Override

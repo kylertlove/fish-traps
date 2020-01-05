@@ -7,40 +7,36 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderDispatcher;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.client.util.math.Vector3f;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.MathHelper;
 import net.nerds.fishtraps.blocks.FishTrapsManager;
+import net.nerds.fishtraps.blocks.woodenFishTrap.WoodenFishTrapBlockEntity;
 
 public class IronFishTrapRenderer extends BlockEntityRenderer<IronFishTrapBlockEntity> {
 
-    private IronFishTrapBlockEntity ironFishTrapBlockEntity;
-
+    private ItemStack fishBait;
     public IronFishTrapRenderer(BlockEntityRenderDispatcher blockEntityRenderDispatcher_1) {
         super(blockEntityRenderDispatcher_1);
+        fishBait = new ItemStack(FishTrapsManager.FISH_BAIT);
     }
 
     @Override
-    public void render(IronFishTrapBlockEntity blockEntity, float v, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int i1) {
-        ironFishTrapBlockEntity = blockEntity;
-    }
+    public void render(IronFishTrapBlockEntity blockEntity, float delta, MatrixStack stack, VertexConsumerProvider vcp, int x, int y) {
 
-    public void method_3590(double double_1, double double_2, double double_3, float float_1, int int_1) {
-        GlStateManager.pushMatrix();
-        GlStateManager.translatef((float)double_1 + 0.5F, (float)double_2, (float)double_3 + 0.5F);
-        if(ironFishTrapBlockEntity.showFishBait()) {
-            renderEntity(float_1);
+        if(blockEntity.showFishBait()) {
+            stack.push();
+            stack.translate(0.5D, 0.0D, 0.5D);
+            ItemEntity bait = new ItemEntity(blockEntity.getWorld(), x, y, blockEntity.getPos().getZ(), fishBait);
+            float g = 0.53125F;
+            stack.translate(0.0D, 0.4000000059604645D, 0.0D);
+            stack.multiply(Vector3f.POSITIVE_Y.getDegreesQuaternion(y));
+            stack.translate(0.0D, -0.20000000298023224D, 0.0D);
+            stack.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(-30.0F));
+            stack.scale(g, g, g);
+            MinecraftClient.getInstance().getEntityRenderManager().render(bait, 0.0D, 0.0D, 0.0D, 0.0F, delta, stack, vcp, x);
+            stack.pop();
         }
-        GlStateManager.popMatrix();
-    }
-
-    public static void renderEntity(float float_1) {
-        ItemStack bait = new ItemStack(FishTrapsManager.FISH_BAIT);
-        float float_2 = 0.8125F;
-        GlStateManager.translatef(0.0F, 0.4F, 0.0F);
-        GlStateManager.rotatef((float) MathHelper.lerp((double)float_1, 3, 3) * 10.0F, 0.0F, 1.0F, 0.0F);
-        GlStateManager.translatef(0.0F, -0.2F, 0.0F);
-        GlStateManager.rotatef(-30.0F, 1.0F, 0.0F, 0.0F);
-        GlStateManager.scalef(float_2, float_2, float_2);
-       // MinecraftClient.getInstance().getItemRenderer().renderItem(bait, ModelTransformation.Type.NONE);
     }
 }
