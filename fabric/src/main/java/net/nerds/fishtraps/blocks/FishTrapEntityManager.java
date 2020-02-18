@@ -49,9 +49,9 @@ public class FishTrapEntityManager {
                 Fishtraps.fishTrapsConfig.getProperty(FishTrapValues.DIAMOND_LUCK)
         ), FishTrapsManager.DIAMOND_FISH_TRAP).build(null);
 
-        Registry.register(Registry.BLOCK_ENTITY, WOODEN_FISH_TRAP_CONTAINER, WOODEN_FISH_TRAP_ENTITY);
-        Registry.register(Registry.BLOCK_ENTITY, IRON_FISH_TRAP_CONTAINER, IRON_FISH_TRAP_ENTITY);
-        Registry.register(Registry.BLOCK_ENTITY, DIAMOND_FISH_TRAP_CONTAINER, DIAMOND_FISH_TRAP_ENTITY);
+        Registry.register(Registry.BLOCK_ENTITY_TYPE, WOODEN_FISH_TRAP_CONTAINER, WOODEN_FISH_TRAP_ENTITY);
+        Registry.register(Registry.BLOCK_ENTITY_TYPE, IRON_FISH_TRAP_CONTAINER, IRON_FISH_TRAP_ENTITY);
+        Registry.register(Registry.BLOCK_ENTITY_TYPE, DIAMOND_FISH_TRAP_CONTAINER, DIAMOND_FISH_TRAP_ENTITY);
     }
 
     public static void initGui() {
