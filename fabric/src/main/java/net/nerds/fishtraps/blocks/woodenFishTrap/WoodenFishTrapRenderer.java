@@ -1,6 +1,5 @@
 package net.nerds.fishtraps.blocks.woodenFishTrap;
 
-import com.mojang.blaze3d.platform.GlStateManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -10,15 +9,8 @@ import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.MobSpawnerLogic;
-import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.blocks.FishTrapsManager;
-
-import java.util.logging.Logger;
 
 @Environment(EnvType.CLIENT)
 public class WoodenFishTrapRenderer extends BlockEntityRenderer<WoodenFishTrapBlockEntity> {

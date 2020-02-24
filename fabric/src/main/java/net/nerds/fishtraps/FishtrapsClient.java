@@ -1,9 +1,12 @@
 package net.nerds.fishtraps;
 
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.nerds.fishtraps.blocks.FishTrapEntityManager;
+import net.nerds.fishtraps.blocks.FishTrapsManager;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapBlockEntity;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapContainer;
 import net.nerds.fishtraps.blocks.diamondFishTrap.DiamondFishTrapGui;
@@ -48,5 +51,9 @@ public class FishtrapsClient implements ClientModInitializer {
                     "Diamond Fish Trap", "Diamond_fish_trap");
         }));
 
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                FishTrapsManager.WOODEN_FISH_TRAP,
+                FishTrapsManager.IRON_FISH_TRAP,
+                FishTrapsManager.DIAMOND_FISH_TRAP);
     }
 }

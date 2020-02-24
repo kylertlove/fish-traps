@@ -41,8 +41,6 @@ public class FishTrapsManager {
 		Registry.register(Registry.ITEM,
 				new Identifier(Fishtraps.MODID, "diamond_fish_trap"),
 				new BlockItem(DIAMOND_FISH_TRAP, new Item.Settings().group(Fishtraps.fishTraps)));
-
-		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), WOODEN_FISH_TRAP, IRON_FISH_TRAP, DIAMOND_FISH_TRAP);
 	}
 
 	private static void itemInit() {
