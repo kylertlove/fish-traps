@@ -12,7 +12,8 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
@@ -35,18 +36,13 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
     }
 
     @Override
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT;
-    }
-
-    @Override
-    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) {
-        if(!worldIn.isRemote) {
-            INamedContainerProvider containerProvider = getContainer(state, worldIn, pos);
+    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos blockPos, PlayerEntity entity, Hand hand, BlockRayTraceResult blockRayTraceResult) {
+        if(!world.isRemote) {
+            INamedContainerProvider containerProvider = getContainer(state, world, blockPos);
             if(containerProvider != null)
-                player.openContainer(containerProvider);
+                entity.openContainer(containerProvider);
         }
-        return true;
+        return ActionResultType.PASS;
     }
 
     @Override
