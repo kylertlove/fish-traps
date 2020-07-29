@@ -1,5 +1,6 @@
 package net.nerds.fishtraps.blocks.IronTrap;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.IHasContainer;
@@ -8,8 +9,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.nerds.fishtraps.Fishtraps;
 
+@OnlyIn(Dist.CLIENT)
 public class IronFishTrapGui extends ContainerScreen<IronFishTrapContainer> implements IHasContainer<IronFishTrapContainer> {
 
     private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui1.png");
@@ -21,23 +25,21 @@ public class IronFishTrapGui extends ContainerScreen<IronFishTrapContainer> impl
         this.xSize = 176;
     }
 
-    protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
-        super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-        String name = new TranslationTextComponent("block.fishtraps.iron_fish_trap").getString();
-        font.drawString(name, 8, 6, 0x404040);
+    @Override
+    protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
+        this.font.func_238422_b_(matrixStack, this.title, (float)this.titleX, (float)this.titleY, 4210752);
     }
 
     @Override
-    public void render(int mouseX, int mouseY, float partialTicks) {
-        super.render(mouseX, mouseY, partialTicks);
-        renderHoveredToolTip(mouseX, mouseY);
-    }
-
-    @Override
-    protected void drawGuiContainerBackgroundLayer(float partialTicks, int mouseX, int mouseY) {
-        renderBackground();
+    protected void drawGuiContainerBackgroundLayer(MatrixStack matrixStack, float partialTicks, int mouseX, int mouseY) {
         GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-        Minecraft.getInstance().getTextureManager().bindTexture(trapTexture);
-        blit((width - xSize) / 2, (height - ySize) / 2, 0, 0, xSize, ySize);
+        this.minecraft.getTextureManager().bindTexture(trapTexture);
+        blit(matrixStack, (width - xSize) / 2, (height - ySize) / 2, 0, 0, xSize, ySize);
+    }
+
+    @Override
+    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
+        func_230459_a_(matrixStack, mouseX, mouseY);
     }
 }

@@ -4,11 +4,12 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.IInventory;
 import net.nerds.fishtraps.FishTrapsManager;
 import net.nerds.fishtraps.blocks.BaseTrap.BaseFishTrapContainer;
+import net.nerds.fishtraps.util.FishTrapItemHandler;
 import net.nerds.fishtraps.util.FishTrapNames;
 
 public class DiamondFishTrapContainer extends BaseFishTrapContainer {
 
-    public DiamondFishTrapContainer(int i, PlayerInventory playerInventory, IInventory inventory) {
+    public DiamondFishTrapContainer(int i, PlayerInventory playerInventory, FishTrapItemHandler inventory) {
         super(i, playerInventory, inventory, FishTrapNames.diamondFishTrapContainerContainerType);
     }
 }

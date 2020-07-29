@@ -9,18 +9,19 @@ import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.BaitSlot;
+import net.nerds.fishtraps.util.FishTrapItemHandler;
 import net.nerds.fishtraps.util.OutputSlot;
 
 public abstract class BaseFishTrapContainer extends Container {
 
     private PlayerInventory playerInventory;
-    private IInventory inventory;
+    private FishTrapItemHandler inventory;
 
-    public BaseFishTrapContainer(int i, PlayerInventory playerInventory, IInventory inventory, ContainerType containerType) {
+    public BaseFishTrapContainer(int i, PlayerInventory playerInventory, FishTrapItemHandler inventory, ContainerType containerType) {
         super(containerType, i);
         this.playerInventory = playerInventory;
-        this.inventory = inventory;
         int invCountNum = 0;
+        this.inventory = inventory;
 
         //Fish Bait Slot
         //inventory, Slot #, x, y
@@ -46,7 +47,7 @@ public abstract class BaseFishTrapContainer extends Container {
 
     @Override
     public boolean canInteractWith(PlayerEntity playerIn) {
-        return this.inventory.isUsableByPlayer(playerIn);
+        return true;
     }
 
     @Override
