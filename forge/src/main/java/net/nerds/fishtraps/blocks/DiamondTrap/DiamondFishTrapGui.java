@@ -36,4 +36,10 @@ public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer
         this.minecraft.getTextureManager().bindTexture(trapTexture);
         blit(matrixStack, (width - xSize) / 2, (height - ySize) / 2, 0, 0, xSize, ySize);
     }
+
+    @Override
+    public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        super.render(matrixStack, mouseX, mouseY, partialTicks);
+        func_230459_a_(matrixStack, mouseX, mouseY);
+    }
 }

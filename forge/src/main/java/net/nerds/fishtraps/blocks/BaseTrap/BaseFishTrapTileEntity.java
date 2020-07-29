@@ -4,16 +4,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.*;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootParameters;
+import net.minecraft.loot.LootTable;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -26,6 +24,7 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.FishTrapInventory;
 import net.nerds.fishtraps.util.FishTrapsConfig;
@@ -35,8 +34,6 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class BaseFishTrapTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
-
-    //private NonNullList<ItemStack> inventory;
     private FishTrapInventory inventory = new FishTrapInventory(this);
     private LazyOptional inventoryHolder = LazyOptional.of(() -> inventory.getItemHandler());
     private long tickCounter = 0;
@@ -47,10 +44,11 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
     private int penaltyMultiplier;
     private int penaltyTickCheck;
     private boolean showFishBait = false;
+    private ResourceLocation lootLocation;
 
     public BaseFishTrapTileEntity(TileEntityType tileEntityType, long delay, int lure, int luck) {
         super(tileEntityType);
-        //inventory = NonNullList.withSize(maxStorage, ItemStack.EMPTY);
+        this.lootLocation = new ResourceLocation(Fishtraps.MODID, "gameplay/traps/" + tileEntityType.getRegistryName().getPath());
         this.luckOfTheSeaLevel = luck;
         this.lureLevel = lure;
         this.shouldPenalize = FishTrapsConfig.FISH_TRAPS_CONFIG.shouldTrapHavePenalty.get();
@@ -104,7 +102,7 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
                 .withParameter(LootParameters.TOOL, itemStack)
                 .withRandom(world.rand)
                 .withLuck(this.lureLevel);
-        LootTable lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING);
+        LootTable lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(this.lootLocation);
         List<ItemStack> list = lootTable.generate(lootContextBuilder.build(LootParameterSets.FISHING));
         inventory.getItemHandler().addListToInventory(list);
         ItemStack fishBait = inventory.getStackInSlot(0);
