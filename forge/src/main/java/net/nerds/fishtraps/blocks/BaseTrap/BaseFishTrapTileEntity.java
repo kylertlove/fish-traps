@@ -17,16 +17,17 @@ import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.RangedWrapper;
 import net.nerds.fishtraps.Fishtraps;
 import net.nerds.fishtraps.items.FishBait;
-import net.nerds.fishtraps.util.FishTrapInventory;
+import net.nerds.fishtraps.util.FishTrapItemHandler;
 import net.nerds.fishtraps.util.FishTrapsConfig;
 
 import javax.annotation.Nonnull;
@@ -34,8 +35,11 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class BaseFishTrapTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
-    private FishTrapInventory inventory = new FishTrapInventory(this);
-    private LazyOptional inventoryHolder = LazyOptional.of(() -> inventory.getItemHandler());
+    private FishTrapItemHandler fishTrapItemHandler = new FishTrapItemHandler();
+    private RangedWrapper itemHandlerBait = new RangedWrapper(fishTrapItemHandler,0, 1);
+    private RangedWrapper itemHandlerOutput = new RangedWrapper(fishTrapItemHandler, 1, 46);
+    private LazyOptional capBait = LazyOptional.of(() -> itemHandlerBait);
+    private LazyOptional capOutput = LazyOptional.of(() -> itemHandlerOutput);
     private long tickCounter = 0;
     private long tickCheck;
     private int luckOfTheSeaLevel;
@@ -48,7 +52,7 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
 
     public BaseFishTrapTileEntity(TileEntityType tileEntityType, long delay, int lure, int luck) {
         super(tileEntityType);
-        this.lootLocation = new ResourceLocation(Fishtraps.MODID, "gameplay/traps/" + tileEntityType.getRegistryName().getPath());
+        this.lootLocation = new ResourceLocation(Fishtraps.MODID, "traps/" + tileEntityType.getRegistryName().getPath());
         this.luckOfTheSeaLevel = luck;
         this.lureLevel = lure;
         this.shouldPenalize = FishTrapsConfig.FISH_TRAPS_CONFIG.shouldTrapHavePenalty.get();
@@ -67,7 +71,7 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
         }
     }
     private long getValidationNumber() {
-        showFishBait = this.inventory.getInventory().get(0).getCount() > 0;
+        showFishBait = itemHandlerBait.getStackInSlot(0).getCount() > 0;
         if(!showFishBait && this.shouldPenalize) {
             return this.penaltyTickCheck;
         } else {
@@ -104,11 +108,11 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
                 .withLuck(this.lureLevel);
         LootTable lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(this.lootLocation);
         List<ItemStack> list = lootTable.generate(lootContextBuilder.build(LootParameterSets.FISHING));
-        inventory.getItemHandler().addListToInventory(list);
-        ItemStack fishBait = inventory.getStackInSlot(0);
+        fishTrapItemHandler.addListToInventory(list);
+        ItemStack fishBait = itemHandlerBait.getStackInSlot(0);
         if(fishBait.getItem() instanceof FishBait) {
             if(fishBait.attemptDamageItem(1, world.rand, null)){
-                inventory.setInventorySlotContents(0, ItemStack.EMPTY);
+                this.fishTrapItemHandler.setStackInSlot(0, ItemStack.EMPTY);
                 markDirty();
             }
         }
@@ -116,27 +120,29 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
 
     public CompoundNBT write(CompoundNBT compound) {
         super.write(compound);
-        ItemStackHelper.saveAllItems(compound, this.inventory.getInventory());
+        ItemStackHelper.saveAllItems(compound, this.fishTrapItemHandler.getList());
         return compound;
     }
 
     public void read(@Nonnull BlockState state, @Nonnull CompoundNBT compound) {
         super.read(state, compound);
-        this.inventory.setInventory(NonNullList.withSize(this.getInventory().getSizeInventory(), ItemStack.EMPTY));
-        ItemStackHelper.loadAllItems(compound, this.inventory.getInventory());
+        ItemStackHelper.loadAllItems(compound, this.fishTrapItemHandler.getList());
+        this.fishTrapItemHandler.deserializeNBT(compound);
     }
 
     @Override
     public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side)
     {
-        if(side == Direction.DOWN || side == Direction.UP) {
-            return cap.orEmpty(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, inventoryHolder);
+        if(side == Direction.UP) {
+            return cap.orEmpty(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, capBait);
+        }else if(side == Direction.DOWN) {
+            return cap.orEmpty(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, capOutput);
         } else {
             return LazyOptional.empty();
         }
     }
 
-    public FishTrapInventory getInventory() {
-        return inventory;
+    public FishTrapItemHandler getInventory() {
+        return this.fishTrapItemHandler;
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.InventoryHelper;
+import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.BooleanProperty;
@@ -25,7 +26,9 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
     public static BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public BaseFishTrapBlock(String name) {
-        super(Block.Properties.create(Material.WOOD).notSolid());
+        super(Block.Properties.create(Material.WOOD).notSolid()
+                .hardnessAndResistance(2.0F, 3.0F)
+                .sound(SoundType.WOOD));
         this.setRegistryName(Fishtraps.MODID, name);
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.TRUE));
     }
@@ -71,7 +74,7 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
         if (state.getBlock() != newState.getBlock()) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
             if (tileentity instanceof BaseFishTrapTileEntity) {
-                InventoryHelper.dropInventoryItems(worldIn, pos, ((BaseFishTrapTileEntity) tileentity).getInventory());
+                InventoryHelper.dropItems(worldIn, pos, ((BaseFishTrapTileEntity) tileentity).getInventory().getList());
             }
             super.onReplaced(state, worldIn, pos, newState, isMoving);
         }
