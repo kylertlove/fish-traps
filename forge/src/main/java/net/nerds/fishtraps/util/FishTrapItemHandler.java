@@ -4,15 +4,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.nerds.fishtraps.blocks.BaseTrap.BaseFishTrapTileEntity;
 import net.nerds.fishtraps.items.FishBait;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Nonnull;
 import java.util.List;
 
 public class FishTrapItemHandler implements IItemHandler {
-
-    Logger logger = LogManager.getLogger(this.getClass().getName());
 
     BaseFishTrapTileEntity baseFishTrapTileEntity;
 

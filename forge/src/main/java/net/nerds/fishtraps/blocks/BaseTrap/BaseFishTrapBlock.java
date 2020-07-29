@@ -1,9 +1,10 @@
 package net.nerds.fishtraps.blocks.BaseTrap;
 
 import net.minecraft.block.*;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.BlockItemUseContext;
@@ -12,7 +13,6 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -25,7 +25,7 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
     public static BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public BaseFishTrapBlock(String name) {
-        super(Block.Properties.from(Blocks.OAK_LOG));
+        super(Block.Properties.create(Material.WOOD).notSolid());
         this.setRegistryName(Fishtraps.MODID, name);
         this.setDefaultState(this.stateContainer.getBaseState().with(WATERLOGGED, Boolean.TRUE));
     }
@@ -53,7 +53,7 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
 
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        IFluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
+        FluidState ifluidstate = context.getWorld().getFluidState(context.getPos());
         return this.getDefaultState().with(WATERLOGGED, ifluidstate.isTagged(FluidTags.WATER) && ifluidstate.getLevel() == 8);
     }
     @Override
@@ -61,7 +61,7 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
         builder.add(WATERLOGGED);
     }
     @Override
-    public IFluidState getFluidState(BlockState state) {
+    public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStillFluidState(false) : super.getFluidState(state);
     }
 

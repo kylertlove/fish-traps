@@ -1,21 +1,28 @@
 package net.nerds.fishtraps.blocks.BaseTrap;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.FishingBobberEntity;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.loot.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.*;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -23,6 +30,7 @@ import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.FishTrapInventory;
 import net.nerds.fishtraps.util.FishTrapsConfig;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 
@@ -114,8 +122,8 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
         return compound;
     }
 
-    public void read(CompoundNBT compound) {
-        super.read(compound);
+    public void read(@Nonnull BlockState state, @Nonnull CompoundNBT compound) {
+        super.read(state, compound);
         this.inventory.setInventory(NonNullList.withSize(this.getInventory().getSizeInventory(), ItemStack.EMPTY));
         ItemStackHelper.loadAllItems(compound, this.inventory.getInventory());
     }

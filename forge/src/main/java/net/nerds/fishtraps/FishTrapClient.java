@@ -1,6 +1,9 @@
 package net.nerds.fishtraps;
 
 import net.minecraft.client.gui.ScreenManager;
+import net.minecraft.client.renderer.BlockModelRenderer;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +22,10 @@ public class FishTrapClient {
         ScreenManager.registerFactory(FishTrapNames.woodenFishTrapContainerContainerType, WoodenFishTrapGui::new);
         ScreenManager.registerFactory(FishTrapNames.ironFishTrapContainerContainerType, IronFishTrapGui::new);
         ScreenManager.registerFactory(FishTrapNames.diamondFishTrapContainerContainerType, DiamondFishTrapGui::new);
+
+        RenderTypeLookup.setRenderLayer(FishTrapsManager.woodenFishTrap, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(FishTrapsManager.ironFishTrap, RenderType.getCutout());
+        RenderTypeLookup.setRenderLayer(FishTrapsManager.diamondFishTrap, RenderType.getCutout());
     }
 
 }
