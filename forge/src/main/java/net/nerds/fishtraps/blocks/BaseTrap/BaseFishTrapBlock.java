@@ -42,10 +42,11 @@ public abstract class BaseFishTrapBlock extends ContainerBlock implements IWater
     public ActionResultType onBlockActivated(BlockState state, World world, BlockPos blockPos, PlayerEntity entity, Hand hand, BlockRayTraceResult blockRayTraceResult) {
         if(!world.isRemote) {
             INamedContainerProvider containerProvider = getContainer(state, world, blockPos);
-            if(containerProvider != null)
+            if(containerProvider != null) {
                 entity.openContainer(containerProvider);
+            }
         }
-        return ActionResultType.PASS;
+        return ActionResultType.SUCCESS;
     }
 
     @Override
