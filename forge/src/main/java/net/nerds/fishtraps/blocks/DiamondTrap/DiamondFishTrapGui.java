@@ -27,7 +27,7 @@ public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer
 
     @Override
     protected void drawGuiContainerForegroundLayer(MatrixStack matrixStack, int x, int y) {
-        this.font.func_238422_b_(matrixStack, this.title, (float)this.titleX, (float)this.titleY, 4210752);
+        this.font.func_243248_b(matrixStack, this.title, (float)this.titleX, (float)this.titleY, 4210752);
     }
 
     @Override
@@ -40,6 +40,6 @@ public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
         super.render(matrixStack, mouseX, mouseY, partialTicks);
-        func_230459_a_(matrixStack, mouseX, mouseY);
+        renderHoveredTooltip(matrixStack, mouseX, mouseY);
     }
 }
