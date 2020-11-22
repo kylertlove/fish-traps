@@ -22,6 +22,7 @@ public class FishTrapsConfig {
     public final IntValue trapPenaltyMultiplier;
     public final IntValue fishBaitDurability;
     public final BooleanValue shouldTrapHavePenalty;
+    public final BooleanValue useDefaultFishingLoottable;
 
     static {
         Pair<FishTrapsConfig,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(FishTrapsConfig::new);
@@ -45,7 +46,7 @@ public class FishTrapsConfig {
         trapPenaltyMultiplier = builder.comment("The Multiplier penalty of traps without fishbait").defineInRange("trapPenaltyMultiplier", 40, 1, 1000);
         fishBaitDurability = builder.comment("The durability of fish bait (NOT implemented yet").defineInRange("fishBaitDurability", 400, 1, 2000000000);
         shouldTrapHavePenalty = builder.comment("Should fish traps be penalized if they dont have bait in them").define("shouldTrapHavePenalty", true);
-
+        useDefaultFishingLoottable = builder.comment("Use the vanilla fishing loot table (Other Mods may have altered this)").define("useDefaultFishingLoottable", false);
     }
 
 }
