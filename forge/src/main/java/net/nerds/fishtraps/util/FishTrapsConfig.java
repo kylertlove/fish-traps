@@ -44,9 +44,9 @@ public class FishTrapsConfig {
         diamondTrapBaseTime = builder.comment("The Lure Level of the diamond trap").defineInRange("diamondTrapBaseTime", 400, 20, 2000000000);
 
         trapPenaltyMultiplier = builder.comment("The Multiplier penalty of traps without fishbait").defineInRange("trapPenaltyMultiplier", 40, 1, 1000);
-        fishBaitDurability = builder.comment("The durability of fish bait (NOT implemented yet").defineInRange("fishBaitDurability", 400, 1, 2000000000);
+        fishBaitDurability = builder.comment("The durability of fish bait (NOT implemented yet").defineInRange("fishBaitDurability", 400, 1, 200000);
         shouldTrapHavePenalty = builder.comment("Should fish traps be penalized if they dont have bait in them").define("shouldTrapHavePenalty", true);
-        useDefaultFishingLoottable = builder.comment("Use the vanilla fishing loot table (Other Mods may have altered this)").define("useDefaultFishingLoottable", false);
+        useDefaultFishingLoottable = builder.comment("Use the vanilla fishing loot table (Other Mods may have altered this). If false - you can add custom datapack loottable in /fishtraps/loot_tables/traps/{material}_fish_trap.json").define("useDefaultFishingLoottable", true);
     }
 
 }

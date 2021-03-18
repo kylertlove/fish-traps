@@ -53,6 +53,9 @@ public class FishTrapsManager {
 
     @SubscribeEvent
     public static void onItemRegistry(final RegistryEvent.Register<Item> itemRegistryEvent){
+
+        int a = FishTrapsConfig.FISH_TRAPS_CONFIG.fishBaitDurability.get();
+        System.out.println("DURABILITY-----------------------------------" + a);
         itemRegistryEvent.getRegistry().register(new FishBait());
         itemRegistryEvent.getRegistry()
                 .register(new BlockItem(woodenFishTrap, new Item.Properties()

@@ -31,6 +31,7 @@ import net.nerds.fishtraps.util.FishTrapsConfig;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class BaseFishTrapTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
     private FishTrapItemHandler fishTrapItemHandler = new FishTrapItemHandler();
@@ -99,14 +100,19 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
         ItemStack itemStack = new ItemStack(Items.FISHING_ROD);
         itemStack.addEnchantment(Enchantments.LURE, this.lureLevel);
         itemStack.addEnchantment(Enchantments.LUCK_OF_THE_SEA, this.luckOfTheSeaLevel);
+        Random random = world.rand;
         LootContext.Builder lootContextBuilder = (new LootContext.Builder((ServerWorld) this.world))
-                .withParameter(LootParameters.field_237457_g_, new Vector3d(pos.getX(), pos.getY(), pos.getZ()))
+                .withParameter(LootParameters.ORIGIN, new Vector3d(pos.getX(), pos.getY(), pos.getZ()))
                 .withParameter(LootParameters.TOOL, itemStack)
-                .withRandom(world.rand)
-                .withLuck(this.lureLevel);
+                .withParameter(LootParameters.BLOCK_ENTITY, this)
+                .withRandom(random)
+                .withLuck(this.luckOfTheSeaLevel);
         LootTable lootTable;
         if(FishTrapsConfig.FISH_TRAPS_CONFIG.useDefaultFishingLoottable.get()) {
             lootTable = this.world.getServer().getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING);
+            if(random.nextDouble() < .04 + ((double)this.luckOfTheSeaLevel / 100)) {
+                lootTable = this.world.getServer().getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING_TREASURE);
+            }
         } else {
             lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(this.lootLocation);
         }
