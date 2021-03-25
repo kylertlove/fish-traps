@@ -8,10 +8,7 @@ import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.LootContext;
-import net.minecraft.loot.LootParameterSets;
-import net.minecraft.loot.LootParameters;
-import net.minecraft.loot.LootTable;
+import net.minecraft.loot.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -34,6 +31,7 @@ import net.nerds.fishtraps.util.FishTrapsConfig;
 import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
+import java.util.Random;
 
 public abstract class BaseFishTrapTileEntity extends TileEntity implements ITickableTileEntity, INamedContainerProvider {
     private FishTrapItemHandler fishTrapItemHandler = new FishTrapItemHandler();
@@ -102,13 +100,22 @@ public abstract class BaseFishTrapTileEntity extends TileEntity implements ITick
         ItemStack itemStack = new ItemStack(Items.FISHING_ROD);
         itemStack.addEnchantment(Enchantments.LURE, this.lureLevel);
         itemStack.addEnchantment(Enchantments.LUCK_OF_THE_SEA, this.luckOfTheSeaLevel);
+        Random random = world.rand;
         LootContext.Builder lootContextBuilder = (new LootContext.Builder((ServerWorld) this.world))
-//                .withParameter(LootParameters.POSITION, new BlockPos(pos))
-                .withParameter(LootParameters.field_237457_g_, new Vector3d(pos.getX(), pos.getY(), pos.getZ()))
+                .withParameter(LootParameters.ORIGIN, new Vector3d(pos.getX(), pos.getY(), pos.getZ()))
                 .withParameter(LootParameters.TOOL, itemStack)
-                .withRandom(world.rand)
-                .withLuck(this.lureLevel);
-        LootTable lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(this.lootLocation);
+                .withParameter(LootParameters.BLOCK_ENTITY, this)
+                .withRandom(random)
+                .withLuck(this.luckOfTheSeaLevel);
+        LootTable lootTable;
+        if(FishTrapsConfig.FISH_TRAPS_CONFIG.useDefaultFishingLoottable.get()) {
+            lootTable = this.world.getServer().getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING);
+            if(random.nextDouble() < .04 + ((double)this.luckOfTheSeaLevel / 100)) {
+                lootTable = this.world.getServer().getLootTableManager().getLootTableFromLocation(LootTables.GAMEPLAY_FISHING_TREASURE);
+            }
+        } else {
+            lootTable = Objects.requireNonNull(this.world.getServer()).getLootTableManager().getLootTableFromLocation(this.lootLocation);
+        }
         List<ItemStack> list = lootTable.generate(lootContextBuilder.build(LootParameterSets.FISHING));
         fishTrapItemHandler.addListToInventory(list);
         ItemStack fishBait = itemHandlerBait.getStackInSlot(0);
