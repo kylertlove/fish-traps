@@ -2,6 +2,7 @@ package net.nerds.fishtraps.blocks.WoodenTrap;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.IHasContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -16,7 +17,7 @@ import net.nerds.fishtraps.Fishtraps;
 @OnlyIn(Dist.CLIENT)
 public class WoodenFishTrapGui extends ContainerScreen<WoodenFishTrapContainer> implements IHasContainer<WoodenFishTrapContainer> {
 
-    private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui1.png");
+    private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui.png");
     private int rows = 5;
 
     public WoodenFishTrapGui(WoodenFishTrapContainer container, PlayerInventory playerInventory, ITextComponent iTextComponent) {
@@ -39,6 +40,7 @@ public class WoodenFishTrapGui extends ContainerScreen<WoodenFishTrapContainer> 
 
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        this.renderBackground(matrixStack);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         renderHoveredTooltip(matrixStack, mouseX, mouseY);
     }

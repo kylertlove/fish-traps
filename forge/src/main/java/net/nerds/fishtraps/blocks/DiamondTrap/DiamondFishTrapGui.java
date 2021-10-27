@@ -16,7 +16,7 @@ import net.nerds.fishtraps.Fishtraps;
 @OnlyIn(Dist.CLIENT)
 public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer> implements IHasContainer<DiamondFishTrapContainer> {
 
-    private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui1.png");
+    private static final ResourceLocation trapTexture = new ResourceLocation(Fishtraps.MODID, "textures/gui/fish_trap_gui.png");
     private int rows = 5;
 
     public DiamondFishTrapGui(DiamondFishTrapContainer container, PlayerInventory playerInventory, ITextComponent iTextComponent) {
@@ -39,6 +39,7 @@ public class DiamondFishTrapGui extends ContainerScreen<DiamondFishTrapContainer
 
     @Override
     public void render(MatrixStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+        this.renderBackground(matrixStack);
         super.render(matrixStack, mouseX, mouseY, partialTicks);
         renderHoveredTooltip(matrixStack, mouseX, mouseY);
     }
