@@ -1,20 +1,17 @@
 package net.nerds.fishtraps.blocks.BaseTrap;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ContainerType;
-import net.minecraft.inventory.container.Slot;
-import net.minecraft.item.ItemStack;
+
+import net.minecraft.world.Container;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.nerds.fishtraps.items.FishBait;
 import net.nerds.fishtraps.util.BaitSlot;
 import net.nerds.fishtraps.util.FishTrapItemHandler;
 import net.nerds.fishtraps.util.OutputSlot;
 
-public abstract class BaseFishTrapContainer extends Container {
+public abstract class BaseFishTrapContainer implements Container {
 
-    private PlayerInventory playerInventory;
+    private Player player;
     private FishTrapItemHandler inventory;
 
     public BaseFishTrapContainer(int i, PlayerInventory playerInventory, FishTrapItemHandler inventory, ContainerType containerType) {
